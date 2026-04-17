@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>さかえビル 入口サイン使用 | ご提案書・契約書</title>
+<title>さかえビル 入口サイン | ご提案書・契約書</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Noto+Serif+JP:wght@400;500;600;700;900&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -17,12 +17,21 @@
   --orange:#E65100; --orange-pale:#FEF3EC;
   --jp:'Noto Sans JP',sans-serif;
   --jp-serif:'Noto Serif JP',serif;
-  --en:'Cormorant Garamond','Inter',serif;
-  --es:'Inter',sans-serif;
+  --en:'Noto Sans JP',sans-serif;
+  --es:'Noto Sans JP',sans-serif;
+  --disp:'Noto Serif JP',serif;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.8;font-size:14px;}
+
+/* 数字系フォントに等幅プロパティとJapanese fallback */
+[class*="kpi-v"],[class*="calc-"],[class*="mci-"],[class*="spec-"],[class*="driver-"],[class*="main-"],.c-dynamic,.c-calc-box,.c-sig-dyn,
+.sign-input-table td.no-cell,.sign-input-table td.area-cell,.sign-input-table td.sub-cell,.sign-input-table td.rate-cell,
+.sign-input-table td input[type="number"],.sign-input-table tfoot td{
+  font-feature-settings:"tnum" 1,"lnum" 1;
+  font-variant-numeric:tabular-nums lining-nums;
+}
 
 .print-only{display:none;}
 
@@ -65,8 +74,8 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 .kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--g2);border:1px solid var(--g2);border-radius:3px;overflow:hidden;margin-bottom:24px;}
 .kpi{background:var(--white);padding:20px 14px;text-align:center;}
 .kpi.accent{background:var(--gold-pale);}
-.kpi-v{font-family:var(--en);font-size:28px;font-weight:700;color:var(--black);line-height:1.2;}
-.kpi-v .u{font-family:var(--jp);font-size:12px;font-weight:500;color:var(--g5);}
+.kpi-v{font-family:var(--en);font-size:30px;font-weight:500;color:var(--black);line-height:1.2;}
+.kpi-v .u{font-family:var(--jp);font-size:11px;font-weight:400;color:var(--g5);margin-left:3px;}
 .kpi-l{font-size:11px;color:var(--g5);margin-top:4px;line-height:1.4;}
 
 /* ── SIGN INPUT ── */
@@ -78,21 +87,23 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 .sign-input-unit strong{font-family:var(--en);font-size:16px;color:var(--gold);font-weight:700;margin:0 3px;}
 
 .sign-input-table{width:100%;border-collapse:collapse;font-size:13px;background:var(--white);}
-.sign-input-table thead th{background:var(--g1);padding:10px 12px;font-size:10px;font-weight:700;color:var(--g5);letter-spacing:1px;border-bottom:1px solid var(--g2);text-align:center;white-space:nowrap;}
-.sign-input-table tbody td{padding:12px;border-bottom:1px solid var(--g2);text-align:center;color:var(--black);vertical-align:middle;}
-.sign-input-table tbody td.no-cell{font-family:var(--en);font-size:13px;font-weight:700;color:var(--g5);}
-.sign-input-table tbody td.area-cell,.sign-input-table tbody td.sub-cell{font-family:var(--en);font-size:14px;font-weight:700;color:var(--black);}
-.sign-input-table tbody td.sub-cell{color:var(--gold);}
-.sign-input-table tbody td input{width:68px;padding:6px 8px;border:1px solid var(--g2);border-radius:2px;font-size:14px;font-family:var(--en);font-weight:700;text-align:center;background:#FFFDF7;color:var(--black);outline:none;-moz-appearance:textfield;}
+.sign-input-table thead th{background:var(--g1);padding:10px 12px;font-size:10px;font-weight:500;color:var(--g5);letter-spacing:1px;border-bottom:1px solid var(--g2);text-align:center;white-space:nowrap;}
+.sign-input-table tbody td{padding:12px;border-bottom:1px solid var(--g2);text-align:center;color:var(--black);vertical-align:middle;white-space:nowrap;}
+.sign-input-table tbody td.no-cell{font-family:var(--en);font-size:13px;font-weight:400;color:var(--g5);}
+.sign-input-table tbody td.area-cell,.sign-input-table tbody td.sub-cell{font-family:var(--en);font-size:14px;font-weight:500;color:var(--black);}
+.sign-input-table tbody td.sub-cell{color:var(--gold);font-weight:500;}
+.sign-input-table tbody td input{width:68px;padding:6px 8px;border:1px solid var(--g2);border-radius:2px;font-size:14px;font-family:var(--en);font-weight:500;text-align:center;background:#FFFDF7;color:var(--black);outline:none;-moz-appearance:textfield;}
 .sign-input-table tbody td input::-webkit-outer-spin-button,.sign-input-table tbody td input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
 .sign-input-table tbody td input:focus{border-color:var(--gold);background:var(--gold-pale);}
-.sign-input-table tbody td .u-cm{font-size:11px;color:var(--g5);margin-left:4px;}
+.sign-input-table tbody td .u-cm{font-size:11px;color:var(--g5);margin-left:4px;font-weight:400;}
 .sign-input-table tbody td.rate-sel-cell{padding:8px 10px;text-align:left;min-width:230px;}
-.sign-input-table tbody td .in-rate{width:100%;padding:7px 8px;border:1px solid var(--g2);border-radius:2px;font-size:12px;font-family:var(--jp);font-weight:600;background:#FFFDF7;color:var(--black);outline:none;cursor:pointer;}
+.sign-input-table tbody td .in-rate{width:100%;padding:7px 8px;border:1px solid var(--g2);border-radius:2px;font-size:12px;font-family:var(--jp);font-weight:500;background:#FFFDF7;color:var(--black);outline:none;cursor:pointer;}
 .sign-input-table tbody td .in-rate:focus{border-color:var(--gold);background:var(--gold-pale);}
-.sign-input-table tbody td.rate-cell{font-family:var(--en);font-size:14px;font-weight:700;color:var(--gold);}
-.sign-input-table tfoot td{background:var(--gold-pale);padding:14px 12px;font-family:var(--en);font-size:15px;font-weight:900;color:var(--black);text-align:center;border-top:2px solid var(--gold);}
-.sign-input-table tfoot td.tot-label{font-family:var(--jp);font-size:12px;font-weight:700;color:var(--g7);text-align:right;letter-spacing:2px;}
+.sign-input-table tbody td.rate-cell{font-family:var(--en);font-size:14px;font-weight:500;color:var(--gold);}
+.sign-input-table tbody td .unit{font-size:11px;color:var(--g5);font-weight:400;margin-left:2px;}
+.sign-input-table tfoot td{background:var(--gold-pale);padding:14px 12px;font-family:var(--en);font-size:15px;font-weight:500;color:var(--black);text-align:center;border-top:1.5px solid var(--gold);white-space:nowrap;}
+.sign-input-table tfoot td .unit{font-size:11px;color:var(--g6);font-weight:400;margin-left:2px;}
+.sign-input-table tfoot td.tot-label{font-family:var(--jp);font-size:12px;font-weight:500;color:var(--g7);text-align:right;letter-spacing:2px;}
 
 .btn-remove{padding:4px 10px;background:transparent;border:1px solid var(--g3);color:var(--g6);font-size:11px;cursor:pointer;border-radius:2px;transition:all .2s;font-family:var(--jp);}
 .btn-remove:hover{background:var(--red-pale);border-color:var(--red);color:var(--red);}
@@ -104,11 +115,11 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 .sign-footer-hint{font-size:11px;color:var(--g5);}
 
 .calc-display{background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:3px;padding:14px 20px;margin-bottom:40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.calc-display .calc-l{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:2px;}
-.calc-display .calc-formula{font-size:12px;color:var(--g7);font-family:var(--en);font-weight:500;}
-.calc-display .calc-formula strong{color:var(--black);font-weight:700;}
-.calc-display .calc-area{font-family:var(--en);font-size:14px;color:var(--g7);font-weight:600;}
-.calc-display .calc-area strong{color:var(--black);}
+.calc-display .calc-l{font-size:11px;color:var(--gold);font-weight:500;letter-spacing:2px;}
+.calc-display .calc-formula{font-size:13px;color:var(--g7);font-family:var(--en);font-weight:400;}
+.calc-display .calc-formula strong{color:var(--black);font-weight:500;}
+.calc-display .calc-area{font-family:var(--en);font-size:14px;color:var(--g7);font-weight:400;}
+.calc-display .calc-area strong{color:var(--black);font-weight:500;}
 
 .spec-table{width:100%;border-collapse:collapse;margin-bottom:36px;font-size:13px;}
 .spec-table th,.spec-table td{padding:11px 16px;border-bottom:1px solid var(--g2);text-align:left;}
@@ -120,8 +131,8 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 .driver-card{border:1px solid var(--g2);border-radius:3px;padding:20px 18px;}
 .driver-tag{font-family:var(--es);font-size:10px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
 .driver-name{font-size:13px;font-weight:700;color:var(--black);margin-bottom:6px;}
-.driver-val{font-family:var(--en);font-size:22px;font-weight:700;color:var(--black);line-height:1.1;margin-bottom:4px;}
-.driver-val .u{font-family:var(--jp);font-size:11px;color:var(--g5);}
+.driver-val{font-family:var(--en);font-size:22px;font-weight:500;color:var(--black);line-height:1.2;margin-bottom:4px;}
+.driver-val .u{font-family:var(--jp);font-size:11px;color:var(--g5);font-weight:400;margin-left:3px;}
 .driver-sub{font-size:11px;color:var(--g5);line-height:1.7;}
 .driver-sub em{color:var(--green);font-style:normal;font-weight:600;}
 .driver-sub span.up{color:var(--red);font-weight:600;}
@@ -146,17 +157,13 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 /* ── MCI 10年推移テーブル ── */
 .mci-table-wrap{width:100%;overflow-x:auto;margin-bottom:10px;}
 .mci-table{width:100%;border-collapse:collapse;font-size:12px;font-family:var(--jp);}
-.mci-table thead th{background:var(--g1);padding:9px 8px;font-size:10.5px;font-weight:700;color:var(--g6);letter-spacing:0.5px;border-bottom:1.5px solid var(--g2);text-align:center;white-space:nowrap;line-height:1.4;}
-.mci-table thead th .sub{font-family:var(--es);font-size:9px;color:var(--g5);font-weight:500;letter-spacing:0.5px;}
-.mci-table tbody td{padding:8px 8px;border-bottom:1px solid var(--g2);text-align:center;color:var(--g7);font-family:var(--en);font-weight:600;font-size:13px;white-space:nowrap;}
-.mci-table tbody td:first-child{font-family:var(--jp);color:var(--black);font-weight:600;font-size:12px;text-align:left;padding-left:14px;white-space:nowrap;}
-.mci-table tbody td.mci-v{color:var(--black);font-weight:700;font-size:13.5px;}
-.mci-table tbody td.mci-v.base{color:var(--gold);font-weight:900;font-size:14.5px;}
-.mci-table tbody td.mci-v.current{color:var(--green);font-weight:900;font-size:14.5px;}
-.mci-table tbody td.lvl-neg{color:var(--g5);font-weight:600;}
-.mci-table tbody td.lvl-pos{color:var(--green);font-weight:700;}
-.mci-table tbody td.lvl-pos.current{font-weight:900;font-size:14px;}
-.mci-table tbody td.lvl-base{color:var(--gold);font-weight:700;}
+.mci-table thead th{background:var(--g1);padding:9px 8px;font-size:10.5px;font-weight:500;color:var(--g6);letter-spacing:0.5px;border-bottom:1.5px solid var(--g2);text-align:center;white-space:nowrap;line-height:1.4;}
+.mci-table thead th .sub{font-family:var(--es);font-size:9px;color:var(--g5);font-weight:400;letter-spacing:0.5px;}
+.mci-table tbody td{padding:9px 8px;border-bottom:1px solid var(--g2);text-align:center;color:var(--g7);font-family:var(--en);font-weight:400;font-size:13px;white-space:nowrap;}
+.mci-table tbody td:first-child{font-family:var(--jp);color:var(--black);font-weight:500;font-size:12.5px;text-align:left;padding-left:14px;white-space:nowrap;}
+.mci-table tbody td.mci-v{color:var(--black);font-weight:500;font-size:14px;}
+.mci-table tbody td.mci-v.base{color:var(--gold);font-weight:600;font-size:14px;}
+.mci-table tbody td.mci-v.current{color:var(--green);font-weight:600;font-size:14px;}
 .mci-table tbody tr.mci-base td{background:rgba(184,146,74,0.07);border-top:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);}
 .mci-table tbody tr.mci-current td{background:rgba(46,125,50,0.06);border-top:1.5px solid var(--green);}
 .mci-foot{font-size:10.5px;color:var(--g5);line-height:1.9;margin-top:10px;margin-bottom:22px;padding:10px 14px;background:var(--g1);border-left:3px solid var(--g3);}
@@ -198,6 +205,21 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 .c-sig-label .role{font-family:var(--jp);font-size:10px;font-weight:600;color:var(--g5);letter-spacing:2px;margin-left:8px;}
 .c-sig-field{font-size:12px;color:var(--g6);margin-bottom:6px;line-height:1.9;}
 .c-sig-date{font-size:12px;color:var(--g6);margin-top:12px;padding-top:10px;border-top:1px dashed var(--g3);}
+
+/* ── 署名入力欄 ── */
+.sig-input{width:calc(100% - 60px);padding:5px 8px;border:1px solid var(--g2);border-radius:2px;font-family:var(--jp);font-size:13px;color:var(--black);background:#FFFDF7;outline:none;transition:border-color 0.15s;}
+.sig-input:focus{border-color:var(--gold);background:var(--gold-pale);}
+.sig-input::placeholder{color:var(--g3);font-size:11px;}
+.sig-date-row{display:flex;align-items:center;gap:12px;margin-top:18px;padding:14px 20px;background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:3px;}
+.sig-date-row label{font-size:12px;font-weight:700;color:var(--g7);letter-spacing:1px;}
+.sig-date-input{padding:6px 10px;border:1px solid var(--gold-border);border-radius:2px;font-family:var(--en);font-size:13px;background:var(--white);color:var(--black);outline:none;}
+.sig-date-input:focus{border-color:var(--gold);}
+.sig-date-preview{font-family:var(--jp-serif);font-size:14px;font-weight:600;color:var(--gold);letter-spacing:2px;margin-left:auto;}
+.seal-hint{display:inline-block;margin-top:8px;font-size:11px;color:var(--gold);font-weight:500;}
+
+/* 契約書側 動的反映spanスタイル */
+.c-sig-dyn{display:inline-block;min-width:140px;padding:0 4px;color:var(--black);border-bottom:1px solid var(--g3);}
+.c-sig-dyn.filled{color:var(--black);border-bottom-color:var(--gold);background:var(--gold-pale);}
 .c-sig-seal{text-align:right;font-size:12px;margin-top:20px;color:var(--g5);padding:18px 18px;border:1px dashed var(--g3);display:inline-block;float:right;letter-spacing:4px;font-weight:600;}
 
 /* ── CONTRACT DOC ── */
@@ -217,7 +239,14 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 .c-article-body ul.no-num li{margin-bottom:4px;text-indent:-1.2em;padding-left:1.2em;}
 .c-article-body ul.no-num li:before{content:"";margin-right:0;}
 .c-emphasis{color:var(--gold);font-weight:900;background:var(--gold-pale);padding:1px 6px;border-radius:2px;}
-.c-dynamic{color:var(--gold);font-weight:900;font-family:var(--en);background:var(--gold-pale);padding:1px 6px;border-radius:2px;border-bottom:2px dashed var(--gold);}
+.c-dynamic{color:var(--gold);font-weight:500;font-family:var(--en);background:var(--gold-pale);padding:1px 6px;border-radius:2px;border-bottom:1.5px solid var(--gold);}
+.c-calc-box{margin-top:10px;padding:14px 18px;background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:3px;font-family:var(--en);font-size:15px;font-weight:500;color:var(--black);text-align:center;}
+.c-article-body ol.c-numbered{list-style:none;counter-reset:legal-item;padding-left:0;}
+.c-article-body ol.c-numbered > li{position:relative;padding-left:30px;counter-increment:legal-item;margin-bottom:5px;}
+.c-article-body ol.c-numbered > li:before{content:"(" counter(legal-item) ")";position:absolute;left:0;top:0;color:var(--g6);font-weight:600;}
+.c-article-body ol.c-rate-list{list-style:none;counter-reset:rate-item;padding-left:0;margin:8px 0;}
+.c-article-body ol.c-rate-list > li{position:relative;padding:10px 14px 10px 40px;counter-increment:rate-item;margin-bottom:6px;background:var(--g1);border-left:3px solid var(--gold);border-radius:2px;}
+.c-article-body ol.c-rate-list > li:before{content:counter(rate-item, decimal-leading-zero);position:absolute;left:10px;top:10px;font-family:var(--en);color:var(--gold);font-weight:900;font-size:13px;letter-spacing:1px;}
 .c-closing{text-align:center;margin:36px 0 28px;font-size:13px;color:var(--g7);}
 .c-date{text-align:center;margin-bottom:32px;font-size:14px;letter-spacing:4px;}
 
@@ -563,6 +592,49 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   .c-sig-label .role{font-size:9pt;letter-spacing:2pt;}
   .c-sig-field{font-size:10.5pt;line-height:2.4;margin-bottom:2mm;}
   .c-sig-date{font-size:10.5pt;margin-top:5mm;padding-top:3mm;}
+
+  /* 署名入力欄（印刷時：入力値を通常文字として表示） */
+  .sig-input{
+    width:calc(100% - 18mm);
+    border:none;
+    padding:0;
+    background:transparent !important;
+    font-family:var(--jp);
+    font-size:10.5pt;
+    color:var(--black);
+    outline:none;
+  }
+  .sig-input::placeholder{color:transparent;}
+  .sig-date-row{
+    display:flex;
+    align-items:baseline;
+    gap:4mm;
+    margin-top:5mm;
+    padding:2mm 0;
+    background:transparent;
+    border:none;
+    border-top:1px dashed var(--g3);
+  }
+  .sig-date-row label{font-size:10pt;color:var(--g7);font-weight:600;}
+  .sig-date-input{display:none;}
+  .sig-date-preview{
+    font-family:var(--jp-serif);
+    font-size:11pt;
+    font-weight:600;
+    color:var(--black);
+    letter-spacing:2pt;
+  }
+  .seal-hint{display:none;}
+
+  /* 契約書側 動的反映span（印刷時：下線のみ） */
+  .c-sig-dyn{
+    display:inline-block;
+    min-width:40mm;
+    padding:0 1mm;
+    color:var(--black);
+    border-bottom:0.5pt solid var(--g4);
+    background:transparent !important;
+  }
   .c-sig-seal{padding:7mm 7mm;font-size:11pt;letter-spacing:7pt;margin-top:5mm;}
 
   /* ── 契約書 印刷 ── */
@@ -595,6 +667,10 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   .c-emphasis{padding:0 3pt;font-size:10pt;font-weight:900;}
   .c-dynamic{padding:0 3pt;font-size:11pt;font-weight:900;}
   .c-article-body strong{font-size:10.5pt;}
+  .c-calc-box{margin-top:2mm;padding:2.5mm 4mm;font-size:11pt;font-weight:900;letter-spacing:1pt;}
+  .c-article-body ol.c-numbered > li{padding-left:7mm;margin-bottom:1mm;}
+  .c-article-body ol.c-rate-list > li{padding:1.5mm 3mm 1.5mm 9mm;margin-bottom:1mm;border-left-width:2pt;}
+  .c-article-body ol.c-rate-list > li:before{left:2mm;top:1.5mm;font-size:9pt;}
 
   /* 契約書末尾：終結句・日付・署名欄は全幅スパン */
   .c-closing{
@@ -660,7 +736,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 <header class="doc-header">
   <div>
     <div class="doc-tag">Entrance Signage — Proposal &amp; Contract</div>
-    <div class="doc-title">さかえビル 入口サイン使用</div>
+    <div class="doc-title">さかえビル 入口サイン</div>
     <div class="doc-sub">
       エントランス専用サイン設置・使用に関するご提案および契約書<br>
       所在地：東京都練馬区豊玉北5-11-4 ／ 2〜3階 介護施設案内サイン ／ 共用部恒久設置
@@ -703,7 +779,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 <div class="print-only print-cover">
   <div class="print-cover-tag">Entrance Signage — Proposal</div>
   <div class="print-cover-doctype">ご提案書<span class="print-cover-bessi">別紙１</span></div>
-  <div class="print-cover-title">さかえビル<br>入口サイン使用</div>
+  <div class="print-cover-title">さかえビル<br>入口サイン</div>
   <div class="print-cover-sub">
     エントランス専用サイン設置・使用に関するご提案<br>
     2〜3階 介護施設案内サイン ／ 共用部恒久設置<br>
@@ -777,8 +853,8 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
     <tfoot>
       <tr>
         <td colspan="6" class="tot-label">合計</td>
-        <td><span id="foot-area">2,500</span> ㎠</td>
-        <td><span id="foot-monthly">32,500</span> 円／月</td>
+        <td><span id="foot-area">2,500</span><span class="unit">㎠</span></td>
+        <td><span id="foot-monthly">32,500</span><span class="unit">円／月</span></td>
         <td class="no-print"></td>
       </tr>
     </tfoot>
@@ -934,7 +1010,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   <div style="background:var(--gold-pale);padding:24px 32px;border-bottom:1px solid var(--gold-border);">
     <div style="font-family:var(--es);font-size:10px;font-weight:700;color:var(--gold);letter-spacing:3px;margin-bottom:8px;">PROPOSED PRICING</div>
     <div style="display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;">
-      <div style="font-family:var(--en);font-size:56px;font-weight:700;color:var(--black);line-height:1;"><span id="main-monthly">32,500</span><span style="font-family:var(--jp);font-size:18px;font-weight:500;color:var(--g5);">円／月</span></div>
+      <div style="font-family:var(--en);font-size:56px;font-weight:400;color:var(--black);line-height:1;"><span id="main-monthly">32,500</span><span style="font-family:var(--jp);font-size:17px;font-weight:400;color:var(--g5);margin-left:6px;">円／月</span></div>
       <div style="font-size:13px;color:var(--g6);line-height:1.9;">
         税別 ／ 第8条第4号（A区分・高視認）単価 13円／1㎝角・月<br>
         年額換算：<strong id="main-yearly" style="color:var(--black);">390,000</strong>円 ／ 税別<br>
@@ -952,8 +1028,8 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
       <div style="font-size:12px;font-weight:700;color:var(--black);line-height:1.5;">毎月末<br>翌月分前払</div>
     </div>
     <div style="background:var(--white);padding:16px 14px;text-align:center;">
-      <div style="font-size:11px;color:var(--g5);margin-bottom:6px;">設置承認料</div>
-      <div style="font-size:12px;font-weight:700;color:var(--black);line-height:1.5;">50,000円<br>（税別・第11条）</div>
+      <div style="font-size:11px;color:var(--g5);margin-bottom:6px;">契約期間</div>
+      <div style="font-size:12px;font-weight:700;color:var(--black);line-height:1.5;">2年間<br>（自動更新・第15条）</div>
     </div>
     <div style="background:var(--white);padding:16px 14px;text-align:center;">
       <div style="font-size:11px;color:var(--g5);margin-bottom:6px;">設置方式</div>
@@ -992,7 +1068,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
       <th>Brent<br><span class="sub">($/bbl)</span></th>
       <th>日経平均<br><span class="sub">(円)</span></th>
       <th>長期金利<br><span class="sub">(%)</span></th>
-      <th>MCI<br><span class="sub">(RC造)</span></th>
+      <th>MCI<br><span class="sub">倍率（基準1.000）</span></th>
     </tr>
   </thead>
   <tbody>
@@ -1028,13 +1104,34 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 </div>
 
 <div class="mci-foot">
-  ★ 基準：2022-04-01（MCI=1.000）　★★ 画像スナップショット：2026-03-05　｜　鋼材指数：HRC先物ベース（2022年4月=100）　｜　Brent原油：年平均（2026.03は指標日時点）　｜　日経平均：年末値（2026.03は指標日時点 54,890円）　｜　長期金利：10年国債利回り　｜　MCI（RC）は TAmJ 独自算出・著作権所有　｜　ソース：<code>data/latest.json</code> 最終更新 2026-02-18
+  ★ 基準：2022-04-01（MCI=1.000）　★★ 画像スナップショット：2026-03-05　｜　鋼材指数：HRC先物ベース（2022年4月=100）　｜　Brent原油：年平均（2026.03は指標日時点）　｜　日経平均：年末値（2026.03は指標日時点 54,890円）　｜　長期金利：10年国債利回り　｜　<strong>MCIは無次元の倍率（2022年4月=1.000）</strong>　｜　TAmJ 独自算出・著作権所有　｜　ソース：<code>data/latest.json</code> 最終更新 2026-02-18
+</div>
+
+<!-- MCIの単位 補足説明 -->
+<div class="note" style="border-color:var(--gold-border);background:var(--gold-pale);margin-bottom:16px;">
+  <p>
+    <strong>【MCIの読み方】</strong><br>
+    MCI は <strong>無次元の倍率（指数）</strong> です。2022年4月の建築コスト水準を <strong>1.000</strong> とした場合の相対値を示し、単位は円でも坪単価・㎡単価でもありません。<br>
+    ・MCI <strong>1.230</strong> ＝ 2022年4月比 <strong>1.230倍</strong>（＋23.0%）の建築コスト水準<br>
+    ・MCI <strong>0.855</strong> ＝ 2022年4月比 <strong>0.855倍</strong>（−14.5%）の建築コスト水準<br>
+    実勢の坪単価・㎡単価を算出する場合は、別途 TAmJ.Develop が提供する<strong>基準坪単価（例：2022年 約99万円／坪 → 2025年 約115万円／坪）</strong>と組み合わせて推計します。MCIは、その「補正係数」として機能するものとお考えください。
+  </p>
+</div>
+
+<!-- 相場変動の背景（代表例） -->
+<div class="note" style="background:var(--g1);border-color:var(--g2);margin-bottom:16px;">
+  <p>
+    <strong>【過去の相場変動 ─ 代表例】</strong><br>
+    <strong style="color:#C0392B;">▼ 下落（2020年）</strong> ─ COVID-19パンデミックで世界需要が急減。2020年4月にはWTI原油先物が史上初のマイナス価格を記録し、建設・製造業の停滞で鋼材需要も崩壊。Brent原油は年平均 $43 まで下落。<br>
+    <strong style="color:var(--green);">▲ 上昇（2022年）</strong> ─ ロシア・ウクライナ戦争の勃発により、原油・鋼材・天然ガス・穀物など主要資源価格が一斉に急騰。Brent原油は年平均 $100、HRC鋼材指数は100超の水準に達し、建築コスト基調が大きく切り上がった転換点。<br>
+    <span style="color:var(--g6);font-size:11px;">※ 各年の詳細な変動ロジック・寄与度分解・8指標別の時系列推移は、<a href="https://develop.tamjump.com/lp-mci.html" target="_blank" style="color:var(--gold);text-decoration:underline;">develop.tamjump.com/lp-mci.html</a> のダッシュボードにてご確認いただけます。</span>
+  </p>
 </div>
 
 <div class="note green">
   <p>
     <strong>【本提案との関係】</strong><br>
-    MCI建設コスト指数は、2022年4月基準（1.000）に対し 2026年3月時点で <strong style="color:var(--green);">1.230</strong> を示し、建築・不動産水準の上昇基調を客観的に示しています。加えて、RC造 坪単価は2012年 約52万円／坪 → 2025年 約115万円／坪 と長期にわたり上昇しています（TAmJ.Develop 提供値）。入口サイン使用料は、建物価値・立地価値・建築コストを反映する性格を持つため、本提案の単価水準（第8条第4号 13円／1㎝角）は現下の市場環境および建築コスト水準に対して妥当な水準にあるものと判断できます。
+    MCI（倍率）は、2022年4月基準（1.000）に対し 2026年3月時点で <strong style="color:var(--green);">1.230</strong> 倍を示し、建築・不動産水準の上昇基調を客観的に示しています。加えて、RC造の実勢坪単価も 2012年 約52万円／坪 → 2025年 約115万円／坪 と長期にわたり上昇しています（TAmJ.Develop 提供値）。入口サイン使用料は、建物価値・立地価値・建築コストを反映する性格を持つため、本提案の単価水準（第8条第4号 13円／1㎝角）は現下の市場環境および建築コスト水準に対して妥当な水準にあるものと判断できます。
   </p>
 </div>
 
@@ -1046,32 +1143,38 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 
 <div class="seal-section">
   <div class="seal-intro">
-    上記のご提案内容についてご確認いただき、ご承諾いただけましたら、下記の捺印欄にご署名・ご捺印をお願いいたします。本提案書は「さかえビル 入口サイン使用許諾契約書」の <strong>別紙１</strong> として取扱い、正式な契約条項は当該契約書本文によるものとします。
+    上記のご提案内容についてご確認いただき、ご承諾いただけましたら、下記の捺印欄にご署名・ご捺印をお願いいたします。本提案書は「さかえビル 入口サイン使用許諾契約書」の <strong>別紙１</strong> として取扱い、正式な契約条項は当該契約書本文によるものとします。<br>
+    <span class="seal-hint no-print">※住所・名称・代表者名を入力すると、契約書タブの「当事者欄」および「署名欄」にも自動反映されます。契約日は契約書に別途記入してください。</span>
   </div>
 
   <div class="c-sig-area">
     <div class="c-sig-box">
-      <div class="c-sig-label">甲<span class="role">提案者</span></div>
-      <div class="c-sig-field">住所：東京都練馬区豊玉北5-11-4</div>
-      <div class="c-sig-field">名称：さかえビル　管理者</div>
-      <div class="c-sig-field">代表者：＿＿＿＿＿＿＿＿＿＿＿＿</div>
-      <div class="c-sig-date">日付：20＿＿ 年 ＿＿ 月 ＿＿ 日</div>
+      <div class="c-sig-label">甲<span class="role">提案者（使用許諾者）</span></div>
+      <div class="c-sig-field">住所：<input type="text" class="sig-input" id="sig-ka-addr" value="東京都練馬区豊玉北5-11-4" placeholder="住所を入力"></div>
+      <div class="c-sig-field">名称：<input type="text" class="sig-input" id="sig-ka-name" value="さかえビル　管理者" placeholder="名称を入力"></div>
+      <div class="c-sig-field">代表者：<input type="text" class="sig-input" id="sig-ka-rep" value="" placeholder="代表者名を入力"></div>
       <div style="clear:both;overflow:hidden;"><span class="c-sig-seal">印</span></div>
     </div>
     <div class="c-sig-box">
-      <div class="c-sig-label">乙<span class="role">ご承諾者</span></div>
-      <div class="c-sig-field">住所：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
-      <div class="c-sig-field">名称：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
-      <div class="c-sig-field">代表者：＿＿＿＿＿＿＿＿＿＿＿＿</div>
-      <div class="c-sig-date">日付：20＿＿ 年 ＿＿ 月 ＿＿ 日</div>
+      <div class="c-sig-label">乙<span class="role">ご承諾者（使用者）</span></div>
+      <div class="c-sig-field">住所：<input type="text" class="sig-input" id="sig-otsu-addr" value="" placeholder="住所を入力"></div>
+      <div class="c-sig-field">名称：<input type="text" class="sig-input" id="sig-otsu-name" value="" placeholder="名称を入力"></div>
+      <div class="c-sig-field">代表者：<input type="text" class="sig-input" id="sig-otsu-rep" value="" placeholder="代表者名を入力"></div>
       <div style="clear:both;overflow:hidden;"><span class="c-sig-seal">印</span></div>
     </div>
   </div>
+
+  <div class="sig-date-row">
+    <label for="sig-date">ご承諾日：</label>
+    <input type="date" class="sig-date-input" id="sig-date" value="">
+    <span class="sig-date-preview" id="sig-date-preview">20＿＿ 年 ＿＿ 月 ＿＿ 日</span>
+  </div>
+</div>
 </div>
 
 <!-- 印刷専用フッター -->
 <div class="print-only print-footer">
-  <strong>さかえビル</strong> 入口サイン使用 ご提案書 ／ DOC: SKE-SIGN-2026-v1 ／ 2026年4月
+  <strong>さかえビル</strong> 入口サイン ご提案書（別紙１） ／ DOC: SKE-SIGN-2026-v1 ／ 2026年4月
 </div>
 
 </div><!-- /main -->
@@ -1110,259 +1213,338 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 <div class="contract-main">
 
 <div class="contract-notice no-print">
-  <strong>【自動反映について】</strong> 本契約書内の <span style="color:var(--gold);font-weight:700;">ゴールド下線</span> で示された項目（月額使用料・合計面積・設置面数・種類数）は、「提案書」タブで入力されたサイン仕様に基づき自動で反映されています。入力値を変更すると本契約書の該当箇所にも即時反映されます。
+  <strong>【自動反映について】</strong> 本契約書 <strong>第9条第2項</strong> の <span style="color:var(--gold);font-weight:700;">ゴールド下線</span> で示された項目（縦・横の寸法、適用単価、月額使用料）は、「提案書」タブ「サイン仕様入力」欄に基づき自動で反映されています。入力値を変更すると本契約書の該当箇所にも即時反映されます。
 </div>
 
 <div class="c-title">さかえビル 入口サイン使用許諾契約書</div>
 
 <div class="c-parties">
   <div class="c-party">
-    <div class="c-party-role">建物所有者兼許諾者（以下「甲」という。）</div>
+    <div class="c-party-role">使用許諾者（以下「甲」という。）</div>
     <div class="c-party-fields">
-      住所：＿＿＿＿＿＿＿＿＿＿<br>
-      名称：＿＿＿＿＿＿＿＿＿＿<br>
-      代表者：＿＿＿＿＿＿＿＿＿＿
+      住所：<span class="c-sig-dyn" id="ctp-ka-addr">＿＿＿＿＿＿＿＿＿＿</span><br>
+      名称：<span class="c-sig-dyn" id="ctp-ka-name">＿＿＿＿＿＿＿＿＿＿</span><br>
+      代表者：<span class="c-sig-dyn" id="ctp-ka-rep">＿＿＿＿＿＿＿＿＿＿</span>
     </div>
   </div>
   <div class="c-party">
     <div class="c-party-role">使用者（以下「乙」という。）</div>
     <div class="c-party-fields">
-      住所：＿＿＿＿＿＿＿＿＿＿<br>
-      名称：＿＿＿＿＿＿＿＿＿＿<br>
-      代表者：＿＿＿＿＿＿＿＿＿＿
+      住所：<span class="c-sig-dyn" id="ctp-otsu-addr">＿＿＿＿＿＿＿＿＿＿</span><br>
+      名称：<span class="c-sig-dyn" id="ctp-otsu-name">＿＿＿＿＿＿＿＿＿＿</span><br>
+      代表者：<span class="c-sig-dyn" id="ctp-otsu-rep">＿＿＿＿＿＿＿＿＿＿</span>
     </div>
   </div>
 </div>
 
 <div class="c-preamble">
-  甲および乙は、乙が入居するさかえビル（東京都練馬区豊玉北5-11-4）の入口部分その他共用部に設置するサイン、看板、案内表示その他これらに類する表示物（以下「サイン」という。）の使用に関し、本「入口サイン使用許諾基準」に基づき、以下のとおり契約を締結する。
+  甲および乙は、乙が入居するさかえビルの入口部分に乙の案内サインを設置し使用することに関し、以下のとおり使用許諾契約（以下「本契約」という。）を締結する。
 </div>
 
 <!-- 第1条 -->
 <div class="c-article">
   <div class="c-article-title">第1条（目的）</div>
   <div class="c-article-body">
-    本基準は、さかえビルの入口部分その他共用部に設置するサインについて、建物の品位、美観、安全性および管理運営の統一を維持しつつ、適正な使用料を定めることを目的とする。
+    本契約は、乙が、さかえビルの入口部分において、乙の施設名、屋号、案内表示その他これに付随する表示を目的としたサインを設置し、使用することについて必要な条件を定めることを目的とする。
   </div>
 </div>
 
 <!-- 第2条 -->
 <div class="c-article">
-  <div class="c-article-title">第2条（基本方針）</div>
+  <div class="c-article-title">第2条（契約の性質）</div>
   <div class="c-article-body">
-    さかえビルにおける入口サインの使用料は、単なる看板面積のみを基準として定めるものではなく、次の各要素を総合的に勘案して決定する。
-    <ol style="list-style:none;padding-left:8px;margin-top:6px;">
-      <li>(1) 建物入口における視認性</li>
-      <li>(2) 来訪者導線上の重要性</li>
-      <li>(3) 医療・介護・福祉用途との親和性</li>
-      <li>(4) 建物全体の美観および品位への影響</li>
-      <li>(5) 共用部の継続使用に伴う管理負担</li>
-      <li>(6) 壁面への恒久設置に伴う原状回復リスク</li>
-      <li>(7) 他入居者との公平性および将来運用上の整合性</li>
+    <ol>
+      <li>本契約は、甲が乙に対し、甲の管理に属する建物共用部の一部について、案内サイン設置のための一時的かつ限定的な使用を許諾するものであり、賃貸借契約その他の物権的権利を設定するものではない。</li>
+      <li>乙は、本契約に基づく権利について、賃借権、借地借家法上の権利、占有権その他これに類する権利を主張しないものとする。</li>
     </ol>
   </div>
 </div>
 
 <!-- 第3条 -->
 <div class="c-article">
-  <div class="c-article-title">第3条（対象）</div>
+  <div class="c-article-title">第3条（対象場所）</div>
   <div class="c-article-body">
-    本基準の対象は、次の各号のいずれかに該当するサインとする。
-    <ol style="list-style:none;padding-left:8px;margin-top:6px;">
-      <li>(1) さかえビル入口付近に設置する施設名、屋号、案内表示</li>
-      <li>(2) さかえビル共用部の壁面、柱面、入口付近等に設置する表示物</li>
-      <li>(3) ボルト固定、アンカー固定その他恒久設置を伴う表示物</li>
-      <li>(4) 管理者が本基準の適用が相当と認めた表示物</li>
+    <ol>
+      <li>甲が乙に使用を許諾する場所は、さかえビル入口付近のコンクリート壁面のうち、甲が指定する部分（以下「対象場所」という。）とする。</li>
+      <li>対象場所の具体的位置、設置範囲、施工条件その他必要事項は甲が定めるものとし、乙はこれに従う。</li>
+      <li>甲は、建物管理上の必要がある場合、対象場所の変更またはサインの移設を乙に求めることができる。</li>
     </ol>
   </div>
 </div>
 
 <!-- 第4条 -->
 <div class="c-article">
-  <div class="c-article-title">第4条（サインの位置区分）</div>
+  <div class="c-article-title">第4条（使用目的）</div>
   <div class="c-article-body">
-    サイン使用料の算定にあたっては、対象位置を次の区分に分類する。
     <ol>
-      <li><strong>A区分</strong>：建物入口正面、または入口導線上において最も高い視認性を有する位置。来訪者、利用者家族、関係事業者等が最初に認識する建物の顔となる場所をいう。</li>
-      <li><strong>B区分</strong>：入口周辺で視認性は高いが、A区分ほどの第一視認性までは有しない位置。</li>
-      <li><strong>C区分</strong>：建物内外において補助的な案内として機能する位置。</li>
+      <li>乙は、対象場所を、乙がさかえビル内において運営する介護施設の施設名表示、案内表示その他甲が承認した表示を行う目的に限って使用するものとし、甲の事前承諾なくその他の目的に使用してはならない。</li>
+      <li>乙は、広告宣伝、求人、第三者の紹介、外部サービス告知その他甲が本来予定しない内容を表示してはならない。</li>
     </ol>
   </div>
 </div>
 
 <!-- 第5条 -->
 <div class="c-article">
-  <div class="c-article-title">第5条（サインの性質区分）</div>
+  <div class="c-article-title">第5条（サインの仕様等）</div>
   <div class="c-article-body">
-    使用料算定にあたっては、サインの性質を次のとおり区分する。
     <ol>
-      <li><strong>案内サイン</strong>：施設名、階数案内、来訪者向け表示等、建物利用上の案内を主たる目的とするもの。</li>
-      <li><strong>専用表示サイン</strong>：特定テナントの名称、ロゴ、ブランド表示等、特定利用者に向けた独占的表示価値を有するもの。</li>
-      <li><strong>広告性の強いサイン</strong>：案内を超えて、宣伝、募集、集客、営業促進等の性格を強く有するもの。</li>
+      <li>乙が設置するサインのサイズ、形状、文字内容、ロゴ、色彩、材質、厚み、構造、表示内容、取付方法その他一切については、事前に甲の承認を得なければならない。</li>
+      <li>乙は、甲の承認を得た内容を超えて、サインのサイズ、形状、文字数、色彩、材質、表示内容または設置方法を変更してはならない。</li>
+      <li>甲は、建物の美観、品位、統一性、利用者導線、安全性または他の入居者との調整上必要があると認めた場合、乙に対し、サイン内容の修正、変更、交換または撤去を求めることができる。</li>
+      <li>使用料算定の基礎となる面積は、<strong>縦寸法（cm）×横寸法（cm）</strong>により算出するものとする。小数点以下の寸法が生じる場合は各辺につき切り上げる。</li>
+      <li>円形、楕円形その他の変形サインについては、当該サインを包含する外接四角形の縦寸法および横寸法により面積を算出する。</li>
     </ol>
   </div>
 </div>
 
 <!-- 第6条 -->
 <div class="c-article">
-  <div class="c-article-title">第6条（設置方法区分）</div>
+  <div class="c-article-title">第6条（設置方法）</div>
   <div class="c-article-body">
-    使用料算定にあたっては、設置方法も考慮する。
     <ol>
-      <li><strong>仮設表示</strong>：貼付、差込、簡易ビス留め等により容易に取り外し可能なもの。</li>
-      <li><strong>半恒久設置</strong>：専用金具等を用いるが、比較的軽微な復旧で撤去可能なもの。</li>
-      <li><strong>恒久設置</strong>：ボルト固定、アンカー固定、コンクリート壁面への穴あけ等を伴い、撤去時に補修・原状回復が必要となるもの。</li>
+      <li>乙は、甲が承認した施工内容に基づき、対象場所であるコンクリート壁面にボルト固定する方法によりサインを設置するものとする。</li>
+      <li>乙は、設置工事に先立ち、施工業者名、工事日程、施工方法、使用部材、養生方法、安全管理方法その他甲が必要とする事項を届け出て、甲の承認を得なければならない。</li>
+      <li>工事は乙の費用と責任において行うものとし、乙は建物、設備、壁面、共用部その他に損傷を与えないよう善良なる管理者の注意をもって実施しなければならない。</li>
+      <li>甲は、施工業者または施工方法が不適当であると合理的に判断した場合、乙に対しその変更を求めることができる。</li>
+      <li>工事に起因して第三者、他の入居者または建物利用者に損害または迷惑が生じた場合、乙はその責任と費用負担においてこれを解決する。</li>
     </ol>
   </div>
 </div>
 
 <!-- 第7条 -->
 <div class="c-article">
-  <div class="c-article-title">第7条（算定の基本原則）</div>
+  <div class="c-article-title">第7条（使用料算定の基本原則）</div>
   <div class="c-article-body">
-    入口サイン使用料は、以下の考え方に基づき決定する。
-    <ol style="list-style:none;padding-left:8px;margin-top:6px;">
-      <li>(1) 面積のみで一律決定しない。</li>
-      <li>(2) 視認性が高い位置ほど使用料を高く設定する。</li>
-      <li>(3) 専用性が高い表示ほど使用料を高く設定する。</li>
-      <li>(4) 恒久設置であるほど、管理負担および原状回復リスクを加味して高く設定する。</li>
-      <li>(5) 建物の品位、美観維持、安全管理、他テナントとの公平性を損なわない範囲で設定する。</li>
-      <li>(6) 将来、他テナントにも同様条件を適用できる水準で設定する。</li>
+    <ol>
+      <li>入口サイン使用料は、単なる看板面積のみを基準として定めるものではなく、建物入口における視認性、来訪者導線上の重要性、医療・介護・福祉用途との親和性、建物全体の美観および品位への影響、共用部の継続使用に伴う管理負担、壁面への恒久設置に伴う原状回復リスク、他入居者との公平性および将来運用上の整合性を総合的に勘案して決定する。</li>
+      <li>使用料は、サインの位置区分、性質区分、設置方法区分および面積単価基準に基づき算定する。</li>
     </ol>
   </div>
 </div>
 
-<!-- 第8条 標準料金 -->
+<!-- 第8条 -->
 <div class="c-article">
   <div class="c-article-title">第8条（標準料金）</div>
   <div class="c-article-body">
     さかえビルにおける入口サインの標準料金は、次のとおりとする。
-    <ol>
-      <li><strong>C区分 ／ 案内サイン ／ 仮設表示</strong>：月額 <span class="c-emphasis">6円</span>（税別）／ 1㎝角（1㎝×1㎝）を標準とする。</li>
-      <li><strong>B区分 ／ 案内サイン ／ 半恒久設置</strong>：月額 <span class="c-emphasis">8円</span>（税別）／ 1㎝角（1㎝×1㎝）を標準とする。</li>
-      <li><strong>A区分 ／ 専用表示サイン ／ 恒久設置</strong>：月額 <span class="c-emphasis">10円</span>（税別）／ 1㎝角（1㎝×1㎝）を標準とする。</li>
-      <li><strong>A区分 ／ 専用表示サイン ／ 恒久設置 ／ 建物入口正面の高視認位置</strong>：月額 <span class="c-emphasis">13円</span>（税別）／ 1㎝角（1㎝×1㎝）を標準とする。</li>
+    <ol class="c-rate-list" style="margin-top:8px;">
+      <li><strong>C区分・案内サイン・仮設表示</strong><br>月額 <strong>6円（税別）／1cm×1cm</strong> を標準とする。</li>
+      <li><strong>B区分・案内サイン・半恒久設置</strong><br>月額 <strong>8円（税別）／1cm×1cm</strong> を標準とする。</li>
+      <li><strong>A区分・専用表示サイン・恒久設置</strong><br>月額 <strong>10円（税別）／1cm×1cm</strong> を標準とする。</li>
+      <li><strong>A区分・専用表示サイン・恒久設置・建物入口正面の高視認位置</strong><br>月額 <strong>13円（税別）／1cm×1cm</strong> を標準とする。</li>
     </ol>
   </div>
 </div>
 
 <!-- 第9条 -->
 <div class="c-article">
-  <div class="c-article-title">第9条（面積の算定方法）</div>
+  <div class="c-article-title">第9条（本件の適用区分および使用料）</div>
   <div class="c-article-body">
     <ol>
-      <li>使用料算定の基礎となる面積は、サインの <strong>縦寸法（cm）× 横寸法（cm）</strong> により算出する。</li>
-      <li>円形、楕円形その他の変形サインについても、原則として当該サインを包含する外接四角形の縦寸法および横寸法により算出する。</li>
-      <li>小数点以下の寸法が生じる場合は、各辺につき小数点以下を切り上げるものとする。</li>
-      <li>厚み、突き出し幅その他立体的要素は、別途管理上必要がある場合を除き、面積計算には含めない。</li>
-    </ol>
-  </div>
-</div>
-
-<!-- 第10条 本件基準額 -->
-<div class="c-article">
-  <div class="c-article-title">第10条（本ビルにおける本件基準額）</div>
-  <div class="c-article-body">
-    <ol>
-      <li>さかえビル入口において、2階〜3階入居の介護施設の施設名表示を、建物入口正面の高視認位置に恒久設置する場合は、原則として <span class="c-emphasis">第8条第4号を適用</span> する。</li>
-      <li>本契約における実際の月額使用料は、<strong>別紙１（ご提案書「さかえビル 入口サイン使用」）</strong>の「サイン仕様入力」欄に記載された仕様に基づき算定するものとし、次のとおりとする。
-        <ul class="no-num" style="margin-top:6px;">
-          <li>承認仕様：合計面積 <span class="c-dynamic" id="ct-area">2,500</span> ㎠ ／ <span class="c-dynamic" id="ct-count">1</span> 面 ／ <span class="c-dynamic" id="ct-types">1</span> 種類</li>
-          <li>月額使用料：<span class="c-dynamic" id="ct-monthly">32,500</span> 円（税別）</li>
-        </ul>
+      <li>本件サインは、建物入口正面の高視認位置に設置される専用表示サインであり、かつコンクリート壁面へのボルト固定による恒久設置であるため、前条第4号を適用する。</li>
+      <li>本件サインの寸法を <strong>縦<span class="c-dynamic" id="ct-w">50</span>cm×横<span class="c-dynamic" id="ct-h">50</span>cm</strong> とした場合、月額使用料は、次のとおりとする。
+        <div class="c-calc-box">
+          <span class="c-dynamic" id="ct-w2">50</span>cm × <span class="c-dynamic" id="ct-h2">50</span>cm × <span class="c-dynamic" id="ct-rate">13</span>円 ＝ 月額 <span class="c-dynamic" id="ct-monthly">32,500</span>円（税別）
+        </div>
       </li>
-      <li>前項の金額は、入口正面の高視認位置における専用表示価値、医療・介護用途建物としての案内価値、恒久設置に伴う管理負担および原状回復リスクを踏まえた基準額とする。</li>
+      <li>使用料は、毎月末日限り翌月分を前払いするものとし、甲が指定する銀行口座へ振込送金の方法により支払う。なお、振込手数料は乙の負担とする。</li>
+      <li>使用期間が1か月に満たない場合であっても、使用料は日割計算を行わず、1か月分全額が発生するものとする。</li>
+      <li>乙が甲の承認を得てサイン寸法を変更した場合、変更後の寸法に基づき、変更月の翌月分から使用料を改定する。</li>
+      <li>甲は、建物価値、周辺相場、管理コスト、法令改正、運営方針その他合理的な事情が生じた場合、乙に対して1か月前までに通知することにより、前条の単価基準または本条の使用料を改定することができる。</li>
     </ol>
   </div>
 </div>
 
-<!-- 第11条 設置承認料 -->
+<!-- 第10条 -->
 <div class="c-article">
-  <div class="c-article-title">第11条（設置承認料）</div>
+  <div class="c-article-title">第10条（費用負担）</div>
   <div class="c-article-body">
     <ol>
-      <li>恒久設置を伴う場合は、月額使用料とは別に、設置承認料を設定することができる。</li>
-      <li>設置承認料は、位置指定、共用部使用調整、施工承認、壁面使用許諾、美観調整その他管理負担の対価として取り扱う。</li>
-      <li>標準額は、次のとおりとする。
-        <ul class="no-num" style="margin-top:6px;">
-          <li>半恒久設置：<strong>30,000円</strong>（税別）</li>
-          <li>恒久設置：<strong>50,000円</strong>（税別）</li>
-        </ul>
-      </li>
-      <li>本件のように、恒久設置を行う場合の設置承認料は、<span class="c-emphasis">50,000円（税別）</span> を標準とする。</li>
+      <li>サインの企画、デザイン、製作、搬入、設置、変更、補修、清掃、維持管理、移設、撤去、廃棄、原状回復、行政手続その他本契約に関連して発生する一切の費用は、すべて乙の負担とする。</li>
+      <li>電気設備、照明設備その他付帯設備を設ける場合は、甲の書面承諾を要し、その設置費用、使用料、維持費用その他一切を乙が負担する。</li>
+      <li>乙のサインに関して行政機関、近隣住民、第三者または他の入居者から異議、苦情、指導または是正要求があった場合、乙は自己の責任と負担において対応する。</li>
     </ol>
   </div>
 </div>
 
-<!-- 第12条 -->
+<!-- 第10条 -->
 <div class="c-article">
-  <div class="c-article-title">第12条（加算要素）</div>
-  <div class="c-article-body">
-    次の各号のいずれかに該当する場合は、管理者判断により使用料または設置承認料を加算することができる。
-    <ol style="list-style:none;padding-left:8px;margin-top:6px;">
-      <li>(1) デザイン審査、複数回修正、特別な統一管理を要する場合</li>
-      <li>(2) 夜間視認性への配慮、照明設備等を伴う場合</li>
-      <li>(3) 工事条件が複雑である場合</li>
-      <li>(4) 他テナントとの調整が必要な場合</li>
-      <li>(5) 特に高い独占的表示価値を認める場合</li>
-    </ol>
-  </div>
-</div>
-
-<!-- 第13条 -->
-<div class="c-article">
-  <div class="c-article-title">第13条（減額要素）</div>
-  <div class="c-article-body">
-    次の各号のいずれかに該当する場合は、管理者判断により減額することができる。
-    <ol style="list-style:none;padding-left:8px;margin-top:6px;">
-      <li>(1) 建物全体の案内板の一部として統一表示する場合</li>
-      <li>(2) 独占性が弱く、補助的な案内にとどまる場合</li>
-      <li>(3) 仮設的で原状回復負担が極めて軽微な場合</li>
-      <li>(4) 建物全体の運営上、特に必要性が高い案内表示である場合</li>
-    </ol>
-  </div>
-</div>
-
-<!-- 第14条 -->
-<div class="c-article">
-  <div class="c-article-title">第14条（賃料等との関係）</div>
+  <div class="c-article-title">第11条（管理および維持）</div>
   <div class="c-article-body">
     <ol>
-      <li>入口サイン使用料は、建物の賃料、共益費その他の費用とは別建てとすることができる。</li>
-      <li>ただし、入居契約条件、運営方針または特別な事情により、賃料または共益費に含めて整理することを妨げない。</li>
+      <li>乙は、サインを常に安全かつ良好な状態に維持管理し、汚損、破損、色あせ、ぐらつき、浮き、腐食、剥離その他建物の外観または安全性を損なう状態を生じさせてはならない。</li>
+      <li>前項の事由が発生し、またはそのおそれがある場合、乙は直ちに必要な補修、交換または撤去を行わなければならない。</li>
+      <li>甲が必要と認めて乙に相当期間を定めて補修等を求めたにもかかわらず、乙がこれに従わない場合、甲は乙に代わって必要な措置を講ずることができ、その費用を乙に請求することができる。</li>
+      <li>緊急性が高い場合には、甲は事前催告なくサインの取り外し、保全措置その他必要な措置を講ずることができる。</li>
     </ol>
   </div>
 </div>
 
-<!-- 第15条 -->
+<!-- 第10条 -->
 <div class="c-article">
-  <div class="c-article-title">第15条(決定権限)</div>
+  <div class="c-article-title">第12条（禁止事項）</div>
   <div class="c-article-body">
-    使用料、設置承認料、加算・減額の有無その他本基準の適用に関する最終決定権限は、建物所有者またはその指定する管理者に帰属する。
+    乙は、次の各号に掲げる行為をしてはならない。
+    <ol class="c-numbered">
+      <li>甲の事前承認なく、対象場所、サイズ、デザイン、文言、色彩、材質、構造または取付方法を変更すること</li>
+      <li>本契約上の地位または対象場所の使用権限を第三者に譲渡し、転貸し、承継させ、または担保に供すること</li>
+      <li>法令、公序良俗または行政指導に反する表示を行うこと</li>
+      <li>誇大広告、虚偽表示、比較広告、政治的表示、宗教的表示、風俗関連表示その他甲が不適当と認める表示を行うこと</li>
+      <li>建物の品位、外観、統一性または安全性を害すること</li>
+      <li>他の入居者、来訪者、近隣住民または第三者に迷惑または支障を及ぼすこと</li>
+      <li>甲の事前承認なく、対象場所にサイン以外の掲示、貼付、工作物設置または装飾を行うこと</li>
+      <li>その他、甲が建物管理上不適当と認める行為</li>
+    </ol>
   </div>
 </div>
 
-<!-- 第16条 -->
+<!-- 第10条 -->
 <div class="c-article">
-  <div class="c-article-title">第16条（例外）</div>
+  <div class="c-article-title">第13条（法令遵守）</div>
   <div class="c-article-body">
-    本基準により難い特別事情がある場合、建物所有者または管理者は、建物全体の利益、美観、安全、運営方針および他入居者との公平性を踏まえ、個別に金額および条件を決定することができる。
+    <ol>
+      <li>乙は、屋外広告物に関する法令、条例、規則、行政指導その他本契約に関連する一切の法令等を遵守しなければならない。</li>
+      <li>法令等に基づく申請、届出、許可取得、是正措置その他必要な手続がある場合は、乙がその責任と費用において行うものとする。</li>
+      <li>法令等に抵触し、または抵触するおそれがあると甲が判断した場合、甲は乙に対し、表示の変更、使用停止または撤去を求めることができ、乙は直ちにこれに従うものとする。</li>
+    </ol>
   </div>
 </div>
 
-<!-- 第17条 -->
+<!-- 第10条 -->
 <div class="c-article">
-  <div class="c-article-title">第17条(改定)</div>
+  <div class="c-article-title">第14条（管理規則等の遵守）</div>
   <div class="c-article-body">
-    建物価値、周辺相場、管理コスト、法令改正、運営方針その他合理的な事情が生じた場合、建物所有者または管理者は、本基準を改定することができる。
+    <ol>
+      <li>乙は、本契約のほか、甲が定める建物管理規則、使用細則、工事ルール、災害対策ルールその他甲の管理運営上の指示を遵守しなければならない。</li>
+      <li>本契約と前項の規則等の内容が抵触する場合には、甲の管理上合理的な範囲で、前項の規則等が優先して適用されるものとする。</li>
+    </ol>
   </div>
 </div>
 
-<!-- 第18条 -->
+<!-- 第10条 -->
 <div class="c-article">
-  <div class="c-article-title">第18条（附則）</div>
+  <div class="c-article-title">第15条（契約期間）</div>
   <div class="c-article-body">
-    本基準は、20＿＿年＿＿月＿＿日より適用する。
+    <ol>
+      <li>本契約の期間は、20＿＿年＿＿月＿＿日から20＿＿年＿＿月＿＿日までの <strong>2年間</strong> とする。</li>
+      <li>期間満了の1か月前までに、甲または乙のいずれからも書面による更新拒絶または条件変更の申し出がない場合、本契約は同一条件でさらに <strong>2年間自動更新</strong> されるものとし、以後も同様とする。</li>
+      <li>乙の本建物における賃貸借契約その他の入居契約が終了した場合、本契約も当然に終了するものとする。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- 第10条 -->
+<div class="c-article">
+  <div class="c-article-title">第16条（中途解約）</div>
+  <div class="c-article-body">
+    <ol>
+      <li>乙は、本契約を中途解約しようとするときは、1か月前までに甲に対し書面により通知しなければならない。</li>
+      <li>前項の場合、乙は甲に対し、解約日の翌日から本契約期間満了日までの <strong>残存月数（1か月に満たない端数は1か月とする。）に第9条第2項に定める月額使用料を乗じた金額を、中途解約金として一括で支払う</strong> ものとする。</li>
+      <li>前項に定める中途解約金および既に受領済みの使用料は、いかなる場合も返還しない。</li>
+      <li>甲は、建物管理上の必要、大規模修繕、外壁工事、設備更新、法令対応、行政指導、入居構成変更、建物用途変更、美観統一その他相当の理由がある場合、乙に対し1か月前までに通知することにより、本契約を終了させ、またはサインの移設もしくは撤去を求めることができる。</li>
+      <li>前項の場合において、甲は乙に対し、サイン製作費、設置費、営業損失その他名目のいかんを問わず、一切の補償義務を負わない。また、前項に基づく甲からの解約の場合、第2項の中途解約金は発生しない。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- 第10条 -->
+<div class="c-article">
+  <div class="c-article-title">第17条（解除）</div>
+  <div class="c-article-body">
+    甲は、乙が次の各号のいずれかに該当した場合、何らの催告を要せず、本契約を直ちに解除することができる。
+    <ol class="c-numbered">
+      <li>使用料その他本契約に基づく支払を怠ったとき</li>
+      <li>本契約に違反し、甲の是正要求に従わないとき</li>
+      <li>甲の承認を得ずにサインの内容または仕様を変更したとき</li>
+      <li>法令違反、行政指導違反または公序良俗違反があったとき</li>
+      <li>建物、他の入居者、来訪者または第三者に重大な損害または迷惑を与えたとき</li>
+      <li>乙の社会的信用が著しく失墜したと甲が合理的に判断したとき</li>
+      <li>乙の入居契約が解除、解約または終了したとき</li>
+      <li>差押え、仮差押え、仮処分、強制執行、競売、破産、民事再生、会社更生、特別清算その他これらに準ずる手続開始の申立てがあったとき</li>
+      <li>手形交換所の取引停止処分を受けたとき</li>
+      <li>その他本契約を継続し難い重大な事由が生じたとき</li>
+    </ol>
+  </div>
+</div>
+
+<!-- 第10条 -->
+<div class="c-article">
+  <div class="c-article-title">第18条（遅延損害金）</div>
+  <div class="c-article-body">
+    乙が本契約に基づく金銭債務の支払を遅滞した場合、乙は甲に対し、支払期日の翌日から完済に至るまで、<strong>年14.6％</strong> の割合による遅延損害金を支払うものとする。
+  </div>
+</div>
+
+<!-- 第10条 -->
+<div class="c-article">
+  <div class="c-article-title">第19条（原状回復）</div>
+  <div class="c-article-body">
+    <ol>
+      <li>本契約が終了した場合、乙は、甲の指定する期日までに、自己の費用と責任において、サインを撤去し、対象場所を原状に回復しなければならない。</li>
+      <li>前項の原状回復には、ボルト、アンカーその他固定部材の撤去、穴埋め、下地補修、表面補修、塗装補修、美観調整その他甲が必要と認める一切の復旧作業を含むものとする。</li>
+      <li>甲が、原状回復の程度または方法について指示を行った場合、乙はこれに従わなければならない。</li>
+      <li>乙が原状回復義務を履行しない場合、甲は乙に代わってこれを行うことができ、その費用およびこれに伴い発生した損害を乙に請求することができる。</li>
+      <li>乙が撤去したサインその他残置物は、甲が任意に処分することができ、乙はこれに異議を述べない。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- 第10条 -->
+<div class="c-article">
+  <div class="c-article-title">第20条（損害賠償）</div>
+  <div class="c-article-body">
+    <ol>
+      <li>乙は、本契約の違反、サインの設置、維持管理、変更、撤去または原状回復に関して、甲または第三者に損害を与えたときは、その一切の損害を賠償しなければならない。</li>
+      <li>乙は、施工業者、委託先、役職員その他乙側関係者の行為についても、自らの行為と同一の責任を負う。</li>
+      <li>甲は、乙のサインの表示内容、設置効果、集客効果、営業成果その他について何ら保証しない。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- 第10条 -->
+<div class="c-article">
+  <div class="c-article-title">第21条（免責）</div>
+  <div class="c-article-body">
+    天災地変、火災、漏水、停電、地震、風水害、落雷、行政処分、法令改正、第三者行為、建物事故、修繕工事その他甲の責めに帰することのできない事由により、乙がサインを設置または使用できず、または移設、撤去、変更を余儀なくされた場合であっても、甲はこれによって乙に生じた損害について責任を負わない。
+  </div>
+</div>
+
+<!-- 第10条 -->
+<div class="c-article">
+  <div class="c-article-title">第22条（反社会的勢力の排除）</div>
+  <div class="c-article-body">
+    <ol>
+      <li>甲および乙は、自己または自己の役員、実質的支配者、主要株主、従業員もしくは委託先が、暴力団、暴力団員、暴力団関係企業、総会屋、社会運動標榜ゴロ、特殊知能暴力集団その他これらに準ずる反社会的勢力に該当しないこと、ならびに将来にわたっても該当しないことを表明し保証する。</li>
+      <li>甲または乙は、相手方が前項に違反し、または反社会的勢力と関係を有すると合理的に認められる場合、何らの催告を要せず直ちに本契約を解除することができる。</li>
+      <li>前項に基づき解除した当事者は、これにより相手方に損害が生じても、その責任を負わない。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- 第10条 -->
+<div class="c-article">
+  <div class="c-article-title">第23条（秘密保持）</div>
+  <div class="c-article-body">
+    <ol>
+      <li>甲および乙は、本契約に関連して知り得た相手方の営業上、技術上または管理上の非公知情報を、法令に基づく場合を除き、相手方の事前承諾なく第三者に開示または漏えいしてはならない。</li>
+      <li>前項の義務は、本契約終了後も2年間存続するものとする。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- 第10条 -->
+<div class="c-article">
+  <div class="c-article-title">第24条（協議事項）</div>
+  <div class="c-article-body">
+    本契約に定めのない事項または本契約の解釈について疑義が生じた場合には、甲乙は誠意をもって協議のうえ解決するものとする。
+  </div>
+</div>
+
+<!-- 第10条 -->
+<div class="c-article">
+  <div class="c-article-title">第25条（合意管轄）</div>
+  <div class="c-article-body">
+    本契約に関して紛争が生じた場合、東京地方裁判所または東京簡易裁判所を第一審の専属的合意管轄裁判所とする。
   </div>
 </div>
 
@@ -1371,22 +1553,22 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 </div>
 
 <div class="c-date">
-  20＿＿ 年 ＿＿ 月 ＿＿ 日
+  <span class="c-sig-dyn" id="ct-date">20＿＿ 年 ＿＿ 月 ＿＿ 日</span>
 </div>
 
 <div class="c-sig-area">
   <div class="c-sig-box">
-    <div class="c-sig-label">甲<span class="role">建物所有者兼許諾者</span></div>
-    <div class="c-sig-field">住所：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
-    <div class="c-sig-field">名称：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
-    <div class="c-sig-field">代表者：＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
+    <div class="c-sig-label">甲<span class="role">使用許諾者</span></div>
+    <div class="c-sig-field">住所：<span class="c-sig-dyn" id="cts-ka-addr">＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
+    <div class="c-sig-field">名称：<span class="c-sig-dyn" id="cts-ka-name">＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
+    <div class="c-sig-field">代表者：<span class="c-sig-dyn" id="cts-ka-rep">＿＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
     <div style="clear:both;overflow:hidden;"><span class="c-sig-seal">印</span></div>
   </div>
   <div class="c-sig-box">
     <div class="c-sig-label">乙<span class="role">使用者</span></div>
-    <div class="c-sig-field">住所：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
-    <div class="c-sig-field">名称：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
-    <div class="c-sig-field">代表者：＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
+    <div class="c-sig-field">住所：<span class="c-sig-dyn" id="cts-otsu-addr">＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
+    <div class="c-sig-field">名称：<span class="c-sig-dyn" id="cts-otsu-name">＿＿＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
+    <div class="c-sig-field">代表者：<span class="c-sig-dyn" id="cts-otsu-rep">＿＿＿＿＿＿＿＿＿＿＿＿＿</span></div>
     <div style="clear:both;overflow:hidden;"><span class="c-sig-seal">印</span></div>
   </div>
 </div>
@@ -1401,7 +1583,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 </div><!-- /contract -->
 
 <footer class="doc-footer no-print">
-  <div><strong>さかえビル</strong> ／ 入口サイン使用 提案書・契約書</div>
+  <div><strong>さかえビル</strong> ／ 入口サイン 提案書・契約書</div>
   <div>DOC-ID: SKE-SIGN-2026-v1 ／ 2026年4月</div>
 </footer>
 
@@ -1473,6 +1655,9 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
     const rates = [];   // 使われている単価
     const rows = tableBody.querySelectorAll('tr');
 
+    // 契約書 第9条用：最初の行の仕様を代表値として取得
+    let firstW = 50, firstH = 50, firstRate = 13;
+
     rows.forEach((tr, idx) => {
       const sel = tr.querySelector('.in-rate');
       const selOpt = sel.options[sel.selectedIndex];
@@ -1484,10 +1669,12 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
       const rowArea  = unitArea * c;
       const rowSub   = rowArea * rate;
 
+      if (idx === 0) { firstW = w; firstH = h; firstRate = rate; }
+
       tr.querySelector('.no-cell').textContent   = (idx + 1);
-      tr.querySelector('.rate-cell').textContent = rate + '円';
-      tr.querySelector('.area-cell').textContent = fmt(rowArea) + ' ㎠';
-      tr.querySelector('.sub-cell').textContent  = fmt(rowSub);
+      tr.querySelector('.rate-cell').innerHTML   = rate + '<span class="unit">円</span>';
+      tr.querySelector('.area-cell').innerHTML   = fmt(rowArea) + '<span class="unit">㎠</span>';
+      tr.querySelector('.sub-cell').innerHTML    = fmt(rowSub) + '<span class="unit">円</span>';
 
       totalArea    += rowArea;
       totalCount   += c;
@@ -1532,13 +1719,13 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
     setText('main-area',    fmt(totalArea));
     setText('main-count',   totalCount);
 
-    // 05 契約条件 → 削除済
-    // 06 別紙（提案書） → 削除済
-
-    // 契約書（自動反映）
-    setText('ct-area',    fmt(totalArea));
-    setText('ct-count',   totalCount);
-    setText('ct-types',   signTypes);
+    // 契約書 第9条第2項（本件の適用区分および使用料）
+    // 複数行がある場合は先頭行の仕様を代表値として表示、月額は全行合計
+    setText('ct-w',       firstW);
+    setText('ct-h',       firstH);
+    setText('ct-w2',      firstW);
+    setText('ct-h2',      firstH);
+    setText('ct-rate',    firstRate);
     setText('ct-monthly', fmt(totalMonthly));
   }
 
@@ -1548,6 +1735,75 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 
   // 初期行：50×50cm × 1面、第8条第4号（13円）＝ 32,500円／月
   addRow(50, 50, 1, DEFAULT_RATE_ID);
+
+  // ──── 署名・日付の連動ロジック ────
+  const PLACEHOLDER_SHORT = '＿＿＿＿＿＿＿＿＿＿';
+  const PLACEHOLDER_LONG  = '＿＿＿＿＿＿＿＿＿＿＿＿＿＿';
+  const PLACEHOLDER_MID   = '＿＿＿＿＿＿＿＿＿＿＿＿＿';
+
+  function updateSigField(inputId, targetIds, placeholder){
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    const val = input.value.trim();
+    targetIds.forEach(function(tid){
+      const el = document.getElementById(tid);
+      if (!el) return;
+      if (val){
+        el.textContent = val;
+        el.classList.add('filled');
+      } else {
+        el.textContent = placeholder;
+        el.classList.remove('filled');
+      }
+    });
+  }
+
+  function formatDateJP(isoDate){
+    // "2026-04-17" → "2026年4月17日"
+    if (!isoDate) return '';
+    const m = isoDate.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!m) return isoDate;
+    return m[1] + '年' + parseInt(m[2], 10) + '月' + parseInt(m[3], 10) + '日';
+  }
+
+  function updateSigDate(){
+    // 提案書の捺印欄プレビュー表示のみ。
+    // 契約書の日付（ct-date）は"契約する日"のため、提案書入力を反映しない。
+    const input = document.getElementById('sig-date');
+    const preview = document.getElementById('sig-date-preview');
+    if (!input) return;
+    const jp = formatDateJP(input.value);
+    if (preview) {
+      preview.textContent = jp || '20＿＿ 年 ＿＿ 月 ＿＿ 日';
+    }
+  }
+
+  // フィールド対応表： 入力ID → 反映先ID配列
+  const SIG_MAP = [
+    { id: 'sig-ka-addr',   targets: ['ctp-ka-addr',   'cts-ka-addr'  ], ph: PLACEHOLDER_LONG  },
+    { id: 'sig-ka-name',   targets: ['ctp-ka-name',   'cts-ka-name'  ], ph: PLACEHOLDER_LONG  },
+    { id: 'sig-ka-rep',    targets: ['ctp-ka-rep',    'cts-ka-rep'   ], ph: PLACEHOLDER_MID   },
+    { id: 'sig-otsu-addr', targets: ['ctp-otsu-addr', 'cts-otsu-addr'], ph: PLACEHOLDER_LONG  },
+    { id: 'sig-otsu-name', targets: ['ctp-otsu-name', 'cts-otsu-name'], ph: PLACEHOLDER_LONG  },
+    { id: 'sig-otsu-rep',  targets: ['ctp-otsu-rep',  'cts-otsu-rep' ], ph: PLACEHOLDER_MID   }
+  ];
+
+  // 各入力フィールドにリスナー設定 + 初期同期
+  SIG_MAP.forEach(function(m){
+    const el = document.getElementById(m.id);
+    if (!el) return;
+    const handler = function(){ updateSigField(m.id, m.targets, m.ph); };
+    el.addEventListener('input', handler);
+    el.addEventListener('change', handler);
+    handler(); // 初期値反映
+  });
+
+  const sigDateEl = document.getElementById('sig-date');
+  if (sigDateEl){
+    sigDateEl.addEventListener('input', updateSigDate);
+    sigDateEl.addEventListener('change', updateSigDate);
+    updateSigDate();
+  }
 
   // タブ切替
   const tabs = document.querySelectorAll('.tab-btn');
