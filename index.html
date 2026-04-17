@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>さかえビル 入口サイン使用 | ご提案書・契約書</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Noto+Serif+JP:wght@400;500;600;700;900&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
   --gold:#B8924A; --gold-pale:#F9F5EC; --gold-border:rgba(184,146,74,0.3);
@@ -16,12 +16,15 @@
   --red:#B71C1C; --red-pale:#FCF1F1;
   --orange:#E65100; --orange-pale:#FEF3EC;
   --jp:'Noto Sans JP',sans-serif;
+  --jp-serif:'Noto Serif JP',serif;
   --en:'Cormorant Garamond','Inter',serif;
   --es:'Inter',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-font-smoothing:antialiased;line-height:1.8;font-size:14px;}
+
+.print-only{display:none;}
 
 .doc-header{background:var(--white);color:var(--black);padding:36px 52px;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;border-bottom:3px solid var(--gold);}
 .doc-tag{font-family:var(--es);font-size:10px;font-weight:700;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;}
@@ -31,12 +34,17 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 .doc-meta strong{color:var(--gold);font-weight:700;font-size:13px;display:block;margin-bottom:2px;}
 
 /* ── PAGE TABS ── */
-.page-tabs{background:var(--white);border-bottom:1px solid var(--g2);padding:0 52px;display:flex;gap:0;position:sticky;top:0;z-index:10;}
+.page-tabs{background:var(--white);border-bottom:1px solid var(--g2);padding:0 52px;display:flex;gap:0;position:sticky;top:0;z-index:10;align-items:stretch;}
+.tabs-left{display:flex;gap:0;flex:1;}
+.tabs-right{display:flex;align-items:center;}
 .tab-btn{padding:16px 36px;background:transparent;border:none;border-bottom:3px solid transparent;cursor:pointer;font-family:var(--jp);font-size:13px;font-weight:700;color:var(--g5);letter-spacing:3px;transition:all .2s;margin-bottom:-1px;}
 .tab-btn:hover{color:var(--g7);background:var(--g1);}
 .tab-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
 .tab-btn .en{font-family:var(--es);font-size:9px;color:var(--g4);display:block;letter-spacing:2px;margin-top:2px;font-weight:600;}
 .tab-btn.active .en{color:var(--gold);}
+.btn-print{padding:9px 22px;background:var(--black);border:1.5px solid var(--black);color:var(--white);font-weight:700;font-size:12px;cursor:pointer;border-radius:2px;transition:all .2s;letter-spacing:2px;font-family:var(--jp);}
+.btn-print:hover{background:var(--gold);border-color:var(--gold);color:var(--white);}
+.btn-print .en{font-family:var(--es);font-size:9px;letter-spacing:2px;margin-left:6px;opacity:0.7;}
 .page-content{display:none;}
 .page-content.active{display:block;}
 
@@ -137,6 +145,16 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 .note p{font-size:12px;color:var(--g7);line-height:2.1;}
 .note p strong{color:var(--black);}
 
+/* ── SEAL AREA (shared proposal & contract) ── */
+.seal-intro{font-size:12px;color:var(--g7);line-height:2;margin-bottom:20px;padding:14px 18px;background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:3px;}
+.c-sig-area{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;margin-bottom:20px;}
+.c-sig-box{border:1px solid var(--g3);padding:22px 20px 28px;background:var(--white);}
+.c-sig-label{font-weight:900;font-size:15px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--g3);color:var(--black);letter-spacing:4px;}
+.c-sig-label .role{font-family:var(--jp);font-size:10px;font-weight:600;color:var(--g5);letter-spacing:2px;margin-left:8px;}
+.c-sig-field{font-size:12px;color:var(--g6);margin-bottom:6px;line-height:1.9;}
+.c-sig-date{font-size:12px;color:var(--g6);margin-top:12px;padding-top:10px;border-top:1px dashed var(--g3);}
+.c-sig-seal{text-align:right;font-size:12px;margin-top:20px;color:var(--g5);padding:18px 18px;border:1px dashed var(--g3);display:inline-block;float:right;letter-spacing:4px;font-weight:600;}
+
 /* ── CONTRACT DOC ── */
 .contract-main{max-width:880px;margin:0 auto;padding:60px 52px 72px;background:var(--white);font-size:13.5px;line-height:1.95;color:var(--black);}
 .c-title{font-size:22px;font-weight:900;text-align:center;letter-spacing:8px;padding-bottom:22px;margin-bottom:36px;border-bottom:2px solid var(--black);}
@@ -157,11 +175,6 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 .c-dynamic{color:var(--gold);font-weight:900;font-family:var(--en);background:var(--gold-pale);padding:1px 6px;border-radius:2px;border-bottom:2px dashed var(--gold);}
 .c-closing{text-align:center;margin:36px 0 28px;font-size:13px;color:var(--g7);}
 .c-date{text-align:center;margin-bottom:32px;font-size:14px;letter-spacing:4px;}
-.c-sig-area{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;}
-.c-sig-box{border:1px solid var(--g3);padding:22px 20px 28px;background:var(--white);}
-.c-sig-label{font-weight:900;font-size:15px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--g3);color:var(--black);letter-spacing:4px;}
-.c-sig-field{font-size:12px;color:var(--g6);margin-bottom:6px;line-height:1.9;}
-.c-sig-seal{text-align:right;font-size:12px;margin-top:20px;color:var(--g5);padding:6px 12px;border:1px dashed var(--g3);display:inline-block;float:right;}
 
 .contract-notice{background:var(--green-pale);border:1px solid rgba(46,125,50,0.3);border-radius:3px;padding:16px 20px;margin-bottom:32px;font-size:12px;color:var(--g7);line-height:1.9;}
 .contract-notice strong{color:var(--green);}
@@ -170,12 +183,268 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 .doc-footer strong{color:var(--g7);}
 .disclaimer{background:var(--g1);border-top:1px solid var(--g2);padding:16px 52px;font-size:10px;color:var(--g4);line-height:2;}
 
-@media print{
-  .doc-header,.page-tabs{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .btn-add,.btn-remove,.page-tabs{display:none;}
-  .page-content{display:block!important;}
-  .page-content:not(:first-of-type){page-break-before:always;}
+/* ═══════════════════════════════════════════ */
+/* ═══════════ PRINT STYLESHEET ═══════════ */
+/* ═══════════════════════════════════════════ */
+@media print {
+  @page {
+    size: A4;
+    margin: 20mm 16mm 18mm 16mm;
+  }
+  @page :first {
+    margin-top: 0;
+  }
+
+  html, body {
+    background: #fff !important;
+    font-size: 10.5pt;
+    line-height: 1.75;
+    color: #111;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  *{
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 画面要素を非表示 */
+  .page-tabs,
+  .notice,
+  .contract-notice,
+  .btn-print,
+  .btn-add,
+  .btn-remove,
+  .sign-input-footer,
+  .sign-footer-hint,
+  .doc-footer,
+  .disclaimer,
+  .tab-btn,
+  .no-print {
+    display: none !important;
+  }
+
+  /* アクティブなタブだけ印刷 */
+  .page-content{display:none!important;}
+  .page-content.active{display:block!important;}
+
+  /* 印刷専用要素を表示 */
+  .print-only{display:block!important;}
+
+  /* 画面用ヘッダー非表示（印刷専用表紙を使う） */
+  .doc-header{display:none!important;}
+
+  /* ── PRINT COVER ── */
+  .print-cover{
+    padding:35mm 10mm 24mm;
+    border-bottom:2pt solid var(--gold);
+    margin-bottom:12mm;
+    page-break-after:avoid;
+    position:relative;
+  }
+  .print-cover::before{
+    content:"";
+    position:absolute;
+    top:18mm;
+    left:10mm;
+    right:10mm;
+    height:0.5pt;
+    background:var(--gold);
+  }
+  .print-cover-tag{
+    font-family:var(--es);
+    font-size:8pt;
+    font-weight:700;
+    color:var(--gold);
+    letter-spacing:6pt;
+    margin-bottom:14mm;
+    text-transform:uppercase;
+  }
+  .print-cover-doctype{
+    font-family:var(--jp-serif);
+    font-size:11pt;
+    color:var(--g6);
+    letter-spacing:8pt;
+    margin-bottom:6mm;
+    font-weight:500;
+  }
+  .print-cover-title{
+    font-family:var(--jp-serif);
+    font-size:28pt;
+    font-weight:900;
+    color:var(--black);
+    line-height:1.4;
+    letter-spacing:2pt;
+    margin-bottom:12mm;
+  }
+  .print-cover-sub{
+    font-size:10pt;
+    color:var(--g6);
+    line-height:1.9;
+    margin-bottom:10mm;
+    padding-left:4mm;
+    border-left:2pt solid var(--gold);
+  }
+  .print-cover-meta{
+    display:flex;
+    justify-content:space-between;
+    margin-top:18mm;
+    padding-top:6mm;
+    border-top:0.5pt solid var(--g3);
+    font-size:8pt;
+    color:var(--g5);
+    font-family:var(--es);
+    letter-spacing:1pt;
+  }
+  .print-cover-meta .meta-item strong{
+    display:block;
+    font-family:var(--jp);
+    color:var(--gold);
+    font-size:9pt;
+    margin-bottom:1mm;
+    letter-spacing:2pt;
+  }
+
+  /* ── PRINT RUNNING HEADER (各ページ上部) ── */
+  .print-running-header{
+    display:none; /* @page margin で対応 */
+  }
+
+  /* ── MAIN CONTENT 印刷調整 ── */
+  .main,.contract-main{
+    max-width:100%;
+    padding:0 0 10mm;
+    margin:0 auto;
+  }
+
+  .sec-label{font-size:7.5pt;letter-spacing:3pt;margin-top:8mm;page-break-after:avoid;}
+  .sec-title{font-size:13pt;margin-bottom:5mm;padding-bottom:3mm;border-bottom-width:1.5pt;page-break-after:avoid;}
+  .sec-divider{margin:8mm 0;border-top:0.5pt solid var(--g3);}
+
+  /* KPI グリッド */
+  .kpi-grid{margin-bottom:5mm;page-break-inside:avoid;}
+  .kpi{padding:4mm 3mm;}
+  .kpi-v{font-size:16pt;}
+  .kpi-v .u{font-size:8pt;}
+  .kpi-l{font-size:7.5pt;}
+
+  /* サイン仕様入力 → 印刷時は通常テーブルに */
+  .sign-input-section{page-break-inside:avoid;margin-bottom:4mm;}
+  .sign-input-header{padding:3mm 5mm;}
+  .sign-input-title{font-size:10pt;}
+  .sign-input-unit{font-size:9pt;}
+  .sign-input-table{font-size:9pt;}
+  .sign-input-table thead th{padding:2.5mm 3mm;font-size:7.5pt;}
+  .sign-input-table tbody td{padding:3mm 3mm;}
+  .sign-input-table tbody td input{
+    border:none!important;
+    background:transparent!important;
+    padding:0!important;
+    width:auto!important;
+    min-width:10mm;
+    font-weight:700;
+    color:var(--black)!important;
+    font-size:10pt;
+  }
+  .sign-input-table tbody td .u-cm{font-size:8pt;}
+  .sign-input-table tfoot td{padding:3.5mm 3mm;font-size:11pt;}
+
+  /* 自動算出ディスプレイ */
+  .calc-display{padding:3mm 5mm;margin-bottom:6mm;page-break-inside:avoid;}
+  .calc-display .calc-l{font-size:8pt;}
+  .calc-display .calc-formula{font-size:9.5pt;}
+  .calc-display .calc-area{font-size:10pt;}
+
+  /* スペックテーブル */
+  .spec-table{font-size:9.5pt;margin-bottom:6mm;}
+  .spec-table th,.spec-table td{padding:2.5mm 4mm;}
+  .spec-table tr{page-break-inside:avoid;}
+
+  /* ドライバーグリッド */
+  .driver-grid{gap:3mm;margin-bottom:6mm;}
+  .driver-card{padding:4mm;page-break-inside:avoid;}
+  .driver-val{font-size:14pt;}
+
+  /* 単価算出式 */
+  .formula{padding:4mm 5mm;margin-bottom:6mm;page-break-inside:avoid;gap:2mm;font-size:9.5pt;}
+  .f-box{padding:2mm 3mm;min-width:0;}
+  .f-result{padding:2.5mm 4mm;min-width:0;}
+  .f-result .fv{font-size:11pt;}
+
+  /* 価値ドライバー */
+  .value-list{gap:3mm;margin-bottom:6mm;}
+  .value-item{padding:4mm;page-break-inside:avoid;}
+  .value-head{font-size:10.5pt;margin-bottom:2mm;}
+  .value-desc{font-size:9pt;}
+
+  /* 料金ブロック */
+  [style*="border:2px solid var(--gold)"]{page-break-inside:avoid;margin-bottom:6mm!important;}
+
+  /* 料金契約条件テーブル */
+  .scale-table{font-size:9.5pt;margin-bottom:4mm;}
+  .scale-table th,.scale-table td{padding:2.5mm 3mm;}
+  .scale-table tr{page-break-inside:avoid;}
+
+  /* ノートボックス */
+  .note{padding:3mm 5mm;margin-bottom:4mm;page-break-inside:avoid;}
+  .note p{font-size:9pt;}
+
+  /* ── 捺印エリア 印刷 ── */
+  .seal-section{page-break-before:always;padding-top:10mm;}
+  .seal-intro{font-size:10pt;padding:4mm 5mm;margin-bottom:10mm;}
+  .c-sig-area{gap:6mm;margin-top:8mm;page-break-inside:avoid;}
+  .c-sig-box{padding:7mm 6mm 10mm;}
+  .c-sig-label{font-size:13pt;margin-bottom:5mm;padding-bottom:3mm;letter-spacing:6pt;}
+  .c-sig-label .role{font-size:8pt;}
+  .c-sig-field{font-size:10pt;line-height:2.3;margin-bottom:2mm;}
+  .c-sig-date{font-size:10pt;margin-top:5mm;padding-top:3mm;}
+  .c-sig-seal{padding:8mm 8mm;font-size:10pt;letter-spacing:6pt;margin-top:6mm;}
+
+  /* ── 契約書 印刷 ── */
+  .c-title{
+    font-family:var(--jp-serif);
+    font-size:20pt;
+    letter-spacing:10pt;
+    padding-bottom:5mm;
+    margin-bottom:10mm;
+    border-bottom-width:1.5pt;
+  }
+  .c-parties{gap:5mm;margin-bottom:8mm;page-break-inside:avoid;}
+  .c-party{padding:4mm 5mm;}
+  .c-party-role{font-size:10pt;margin-bottom:2mm;padding-bottom:2mm;}
+  .c-party-fields{font-size:9.5pt;line-height:2.2;}
+  .c-preamble{padding:4mm 5mm;margin-bottom:8mm;font-size:10pt;line-height:2;}
+
+  .c-article{margin-bottom:5mm;page-break-inside:avoid;}
+  .c-article-title{font-size:11pt;padding:2mm 4mm;margin-bottom:2mm;border-left-width:3pt;}
+  .c-article-body{padding:0 4mm;font-size:10pt;line-height:2;}
+  .c-article-body ol{padding-left:6mm;margin:2mm 0;}
+  .c-article-body ol li{margin-bottom:1.5mm;}
+  .c-emphasis,.c-dynamic{padding:0 2pt;}
+
+  .c-closing{margin:10mm 0 6mm;font-size:10pt;}
+  .c-date{margin-bottom:10mm;font-size:11pt;letter-spacing:6pt;}
+
+  /* ── フッター情報（印刷専用） ── */
+  .print-footer{
+    display:block!important;
+    margin-top:15mm;
+    padding-top:4mm;
+    border-top:0.5pt solid var(--g3);
+    font-size:8pt;
+    color:var(--g5);
+    text-align:center;
+    letter-spacing:2pt;
+    font-family:var(--es);
+  }
+  .print-footer strong{
+    color:var(--gold);
+    font-family:var(--jp);
+    font-weight:700;
+    margin:0 6pt;
+  }
 }
+
 @media(max-width:768px){
   .doc-header{flex-direction:column;padding:24px;gap:16px;}
   .main,.contract-main{padding:24px;}
@@ -185,14 +454,15 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   .scale-table,.sign-input-table{font-size:11px;}
   .scale-table th,.scale-table td,.sign-input-table th,.sign-input-table td{padding:8px;}
   .sign-input-table tbody td input{width:56px;font-size:12px;}
-  .page-tabs{padding:0 20px;}
+  .page-tabs{padding:0 20px;flex-wrap:wrap;}
   .tab-btn{padding:14px 18px;font-size:12px;letter-spacing:1px;}
+  .btn-print{padding:8px 14px;font-size:11px;letter-spacing:1px;}
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- HEADER (画面のみ) -->
 <header class="doc-header">
   <div>
     <div class="doc-tag">Entrance Signage — Proposal &amp; Contract</div>
@@ -210,20 +480,50 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   </div>
 </header>
 
-<!-- TABS -->
-<nav class="page-tabs">
-  <button type="button" class="tab-btn active" data-target="proposal">
-    提案書
-    <span class="en">PROPOSAL</span>
-  </button>
-  <button type="button" class="tab-btn" data-target="contract">
-    契約書
-    <span class="en">CONTRACT</span>
-  </button>
+<!-- TABS (画面のみ) -->
+<nav class="page-tabs no-print">
+  <div class="tabs-left">
+    <button type="button" class="tab-btn active" data-target="proposal">
+      提案書
+      <span class="en">PROPOSAL</span>
+    </button>
+    <button type="button" class="tab-btn" data-target="contract">
+      契約書
+      <span class="en">CONTRACT</span>
+    </button>
+  </div>
+  <div class="tabs-right">
+    <button type="button" class="btn-print" onclick="window.print()">印刷<span class="en">PRINT</span></button>
+  </div>
 </nav>
 
 <!-- ═══════════════════════ 提案書 ═══════════════════════ -->
 <div id="proposal" class="page-content active">
+
+<!-- 印刷専用表紙 -->
+<div class="print-only print-cover">
+  <div class="print-cover-tag">Entrance Signage — Proposal</div>
+  <div class="print-cover-doctype">ご提案書</div>
+  <div class="print-cover-title">さかえビル<br>入口サイン使用</div>
+  <div class="print-cover-sub">
+    エントランス専用サイン設置・使用に関するご提案<br>
+    2〜3階 介護施設案内サイン ／ 共用部恒久設置
+  </div>
+  <div class="print-cover-meta">
+    <div class="meta-item">
+      <strong>所在地</strong>
+      東京都練馬区豊玉北5-11-4
+    </div>
+    <div class="meta-item">
+      <strong>作成日</strong>
+      2026年4月
+    </div>
+    <div class="meta-item">
+      <strong>DOCUMENT ID</strong>
+      SKE-SIGN-2026-v1
+    </div>
+  </div>
+</div>
 
 <!-- NOTICE -->
 <div class="notice">
@@ -273,7 +573,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
         <th>面数</th>
         <th>合計面積</th>
         <th>小計（円／月）</th>
-        <th style="width:80px;">操作</th>
+        <th style="width:80px;" class="no-print">操作</th>
       </tr>
     </thead>
     <tbody id="sign-rows"></tbody>
@@ -282,7 +582,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
         <td colspan="4" class="tot-label">合計</td>
         <td><span id="foot-area">2,500</span> ㎠</td>
         <td><span id="foot-monthly">25,000</span> 円／月</td>
-        <td></td>
+        <td class="no-print"></td>
       </tr>
     </tfoot>
   </table>
@@ -527,11 +827,47 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   </tbody>
 </table>
 
-<div class="note">
+<div class="note no-print">
   <p>
     <strong>【契約書本体について】</strong><br>
     正式な契約書は上部タブ「<strong>契約書</strong>」よりご確認いただけます。本提案書で入力された金額・合計面積・設置面数・種類数は、契約書内の該当箇所に自動で反映されます。最終的な文言・条項は契約書原本によります。
   </p>
+</div>
+
+<hr class="sec-divider">
+
+<!-- 06 捺印欄（提案書） -->
+<div class="sec-label">06 — Acknowledgment</div>
+<div class="sec-title">ご承諾 捺印欄</div>
+
+<div class="seal-section">
+  <div class="seal-intro">
+    上記のご提案内容についてご確認いただき、ご承諾いただけましたら、下記の捺印欄にご署名・ご捺印をお願いいたします。正式な契約条項は別紙「さかえビル 入口サイン使用契約書」によるものとします。
+  </div>
+
+  <div class="c-sig-area">
+    <div class="c-sig-box">
+      <div class="c-sig-label">甲<span class="role">提案者</span></div>
+      <div class="c-sig-field">住所：東京都練馬区豊玉北5-11-4</div>
+      <div class="c-sig-field">名称：さかえビル　管理者</div>
+      <div class="c-sig-field">代表者：＿＿＿＿＿＿＿＿＿＿＿＿</div>
+      <div class="c-sig-date">日付：20＿＿ 年 ＿＿ 月 ＿＿ 日</div>
+      <div style="clear:both;overflow:hidden;"><span class="c-sig-seal">印</span></div>
+    </div>
+    <div class="c-sig-box">
+      <div class="c-sig-label">乙<span class="role">ご承諾者</span></div>
+      <div class="c-sig-field">住所：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
+      <div class="c-sig-field">名称：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
+      <div class="c-sig-field">代表者：＿＿＿＿＿＿＿＿＿＿＿＿</div>
+      <div class="c-sig-date">日付：20＿＿ 年 ＿＿ 月 ＿＿ 日</div>
+      <div style="clear:both;overflow:hidden;"><span class="c-sig-seal">印</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 印刷専用フッター -->
+<div class="print-only print-footer">
+  <strong>さかえビル</strong> 入口サイン使用 ご提案書 ／ DOC: SKE-SIGN-2026-v1 ／ 2026年4月
 </div>
 
 </div><!-- /main -->
@@ -542,9 +878,34 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 <!-- ═══════════════════════ 契約書 ═══════════════════════ -->
 <div id="contract" class="page-content">
 
+<!-- 印刷専用表紙 -->
+<div class="print-only print-cover">
+  <div class="print-cover-tag">Entrance Signage — Contract</div>
+  <div class="print-cover-doctype">契　約　書</div>
+  <div class="print-cover-title">さかえビル<br>入口サイン使用契約書</div>
+  <div class="print-cover-sub">
+    エントランス専用サインの設置および使用に関する契約<br>
+    2〜3階 介護施設案内サイン ／ 共用部恒久設置
+  </div>
+  <div class="print-cover-meta">
+    <div class="meta-item">
+      <strong>所在地</strong>
+      東京都練馬区豊玉北5-11-4
+    </div>
+    <div class="meta-item">
+      <strong>作成日</strong>
+      2026年4月
+    </div>
+    <div class="meta-item">
+      <strong>DOCUMENT ID</strong>
+      SKE-SIGN-2026-v1
+    </div>
+  </div>
+</div>
+
 <div class="contract-main">
 
-<div class="contract-notice">
+<div class="contract-notice no-print">
   <strong>【自動反映について】</strong> 本契約書内の <span style="color:var(--gold);font-weight:700;">ゴールド下線</span> で示された項目（月額使用料・合計面積・設置面数・種類数・解約金例示額）は、「提案書」タブで入力されたサイン仕様に基づき自動で反映されています。入力値を変更すると本契約書の該当箇所にも即時反映されます。
 </div>
 
@@ -640,7 +1001,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   </div>
 </div>
 
-<!-- 第6条 費用負担（旧第7条） -->
+<!-- 第6条 費用負担 -->
 <div class="c-article">
   <div class="c-article-title">第6条（費用負担）</div>
   <div class="c-article-body">
@@ -765,42 +1126,47 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 </div>
 
 <div class="c-date">
-  20＿＿年 ＿＿月 ＿＿日
+  20＿＿ 年 ＿＿ 月 ＿＿ 日
 </div>
 
 <div class="c-sig-area">
   <div class="c-sig-box">
-    <div class="c-sig-label">甲</div>
+    <div class="c-sig-label">甲<span class="role">賃貸人兼使用許諾者</span></div>
     <div class="c-sig-field">住所：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
     <div class="c-sig-field">名称：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
     <div class="c-sig-field">代表者：＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
     <div style="clear:both;overflow:hidden;"><span class="c-sig-seal">印</span></div>
   </div>
   <div class="c-sig-box">
-    <div class="c-sig-label">乙</div>
+    <div class="c-sig-label">乙<span class="role">賃借人兼使用者</span></div>
     <div class="c-sig-field">住所：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
     <div class="c-sig-field">名称：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
     <div class="c-sig-field">代表者：＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
     <div style="clear:both;overflow:hidden;"><span class="c-sig-seal">印</span></div>
   </div>
+</div>
+
+<!-- 印刷専用フッター -->
+<div class="print-only print-footer">
+  <strong>さかえビル</strong> 入口サイン使用契約書 ／ DOC: SKE-SIGN-2026-v1 ／ 2026年4月
 </div>
 
 </div><!-- /contract-main -->
 
 </div><!-- /contract -->
 
-<footer class="doc-footer">
+<footer class="doc-footer no-print">
   <div><strong>さかえビル</strong> ／ 入口サイン使用 提案書・契約書</div>
   <div>DOC-ID: SKE-SIGN-2026-v1 ／ 2026年4月</div>
 </footer>
 
-<div class="disclaimer">
+<div class="disclaimer no-print">
   【免責事項】本資料の単価および月額は参考提案です。相場データは公表情報（テナントビル共用部サイン使用料、屋外広告媒体相場、小型案内媒体相場）に基づく一般的な目安です。本資料の内容は予告なく変更される場合があります。© 2026 さかえビル All Rights Reserved.
 </div>
 
 <script>
 (function(){
-  const UNIT_PRICE_PER_CM2 = 10; // 10円／㎠・月（税別）
+  const UNIT_PRICE_PER_CM2 = 10;
   const tableBody = document.getElementById('sign-rows');
   const btnAdd = document.getElementById('btn-add');
 
@@ -816,7 +1182,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
       + '<td><input type="number" class="in-c" value="' + c + '" min="1" max="99" step="1"><span class="u-cm">面</span></td>'
       + '<td class="area-cell">—</td>'
       + '<td class="sub-cell">—</td>'
-      + '<td><button type="button" class="btn-remove">削除</button></td>';
+      + '<td class="no-print"><button type="button" class="btn-remove">削除</button></td>';
     tableBody.appendChild(tr);
 
     tr.querySelectorAll('input').forEach(el => {
@@ -864,33 +1230,27 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 
     const yearly = totalMonthly * 12;
 
-    // footer
     setText('foot-area',    fmt(totalArea));
     setText('foot-monthly', fmt(totalMonthly));
 
-    // KPI
     setText('kpi-types',   signTypes);
     setText('kpi-count',   totalCount);
     setText('kpi-area',    fmt(totalArea));
     setText('kpi-monthly', fmt(totalMonthly));
 
-    // auto calc display
     setText('calc-area',    fmt(totalArea));
     setText('calc-monthly', fmt(totalMonthly));
     setText('calc-yearly',  fmt(yearly));
 
-    // spec table
     setText('spec-area',  fmt(totalArea));
     setText('spec-count', totalCount);
     setText('spec-types', signTypes);
 
-    // proposal main pricing
     setText('main-monthly', fmt(totalMonthly));
     setText('main-yearly',  fmt(yearly));
     setText('main-area',    fmt(totalArea));
     setText('main-count',   totalCount);
 
-    // proposal terms table
     setText('terms-area',        fmt(totalArea));
     setText('terms-count',       totalCount);
     setText('terms-types',       signTypes);
@@ -898,7 +1258,6 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
     setText('terms-cancel',      fmt(totalMonthly));
     setText('terms-cancel-total',fmt(totalMonthly * 12));
 
-    // CONTRACT auto-fill
     setText('ct-area',          fmt(totalArea));
     setText('ct-count',         totalCount);
     setText('ct-types',         signTypes);
@@ -914,7 +1273,6 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
     addRow(50, 50, 1);
   });
 
-  // 初期行
   addRow(50, 50, 1);
 
   // タブ切替
