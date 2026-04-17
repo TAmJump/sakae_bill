@@ -82,6 +82,10 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 .sign-input-table tbody td input::-webkit-outer-spin-button,.sign-input-table tbody td input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
 .sign-input-table tbody td input:focus{border-color:var(--gold);background:var(--gold-pale);}
 .sign-input-table tbody td .u-cm{font-size:11px;color:var(--g5);margin-left:4px;}
+.sign-input-table tbody td.rate-sel-cell{padding:8px 10px;text-align:left;min-width:230px;}
+.sign-input-table tbody td .in-rate{width:100%;padding:7px 8px;border:1px solid var(--g2);border-radius:2px;font-size:12px;font-family:var(--jp);font-weight:600;background:#FFFDF7;color:var(--black);outline:none;cursor:pointer;}
+.sign-input-table tbody td .in-rate:focus{border-color:var(--gold);background:var(--gold-pale);}
+.sign-input-table tbody td.rate-cell{font-family:var(--en);font-size:14px;font-weight:700;color:var(--gold);}
 .sign-input-table tfoot td{background:var(--gold-pale);padding:14px 12px;font-family:var(--en);font-size:15px;font-weight:900;color:var(--black);text-align:center;border-top:2px solid var(--gold);}
 .sign-input-table tfoot td.tot-label{font-family:var(--jp);font-size:12px;font-weight:700;color:var(--g7);text-align:right;letter-spacing:2px;}
 
@@ -616,7 +620,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 
 <!-- NOTICE -->
 <div class="notice">
-  本資料はさかえビル入口部分における専用サインの設置および月額使用条件に関する提案書です。月額は「サイン仕様入力」に寸法・面数を入力すると、単価 <strong style="color:var(--gold);margin-left:4px;">10円／1㎝角（1㎝×1㎝）・月（税別）</strong> に基づき自動算出されます。サイズが異なる複数サインの追加も可能です。
+  本資料はさかえビル入口部分における専用サインの設置および月額使用条件に関する提案書です。月額は「サイン仕様入力」で <strong style="color:var(--gold);">区分・寸法・面数</strong> を選択・入力すると、<strong style="color:var(--gold);">第8条 標準料金表（6〜13円／1㎝角・月・税別）</strong> に基づき自動算定されます。本件標準は第8条第4号（A区分・専用・恒久・高視認 ＝ 13円）です。
 </div>
 
 <div class="main">
@@ -643,7 +647,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
     <div class="kpi-l">設置方式<br>（正式サイン扱い）</div>
   </div>
   <div class="kpi accent">
-    <div class="kpi-v"><span id="kpi-monthly">25,000</span><span class="u">円/月</span></div>
+    <div class="kpi-v"><span id="kpi-monthly">32,500</span><span class="u">円/月</span></div>
     <div class="kpi-l">月額使用料合計<br>（税別・自動算出）</div>
   </div>
 </div>
@@ -651,26 +655,28 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 <div class="sign-input-section">
   <div class="sign-input-header">
     <div class="sign-input-title"><span class="tag">◆ INPUT</span>サイン仕様入力</div>
-    <div class="sign-input-unit">単価：<strong>10円</strong>／1㎝角・月（税別）</div>
+    <div class="sign-input-unit">第8条 標準料金：<strong>6〜13円</strong>／1㎝角・月（税別）｜区分選択により自動適用</div>
   </div>
   <table class="sign-input-table">
     <thead>
       <tr>
-        <th style="width:50px;">No.</th>
+        <th style="width:40px;">No.</th>
+        <th>区分（第8条）</th>
         <th>幅</th>
         <th>高さ</th>
         <th>面数</th>
+        <th>単価</th>
         <th>合計面積</th>
         <th>小計（円／月）</th>
-        <th style="width:80px;" class="no-print">操作</th>
+        <th style="width:70px;" class="no-print">操作</th>
       </tr>
     </thead>
     <tbody id="sign-rows"></tbody>
     <tfoot>
       <tr>
-        <td colspan="4" class="tot-label">合計</td>
+        <td colspan="6" class="tot-label">合計</td>
         <td><span id="foot-area">2,500</span> ㎠</td>
-        <td><span id="foot-monthly">25,000</span> 円／月</td>
+        <td><span id="foot-monthly">32,500</span> 円／月</td>
         <td class="no-print"></td>
       </tr>
     </tfoot>
@@ -684,9 +690,9 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 <div class="calc-display">
   <div>
     <div class="calc-l">AUTO CALCULATION</div>
-    <div class="calc-formula">単価 <strong>10円／1㎝角・月</strong> × 合計面積 <strong id="calc-area">2,500</strong>㎠ <span style="color:var(--gold);">=</span> <strong id="calc-monthly">25,000</strong>円／月（税別）</div>
+    <div class="calc-formula">適用単価 <strong id="calc-rate">13円</strong>／1㎝角・月 × 合計面積 <strong id="calc-area">2,500</strong>㎠ <span style="color:var(--gold);">=</span> <strong id="calc-monthly">32,500</strong>円／月（税別）</div>
   </div>
-  <div class="calc-area">年額換算：<strong id="calc-yearly">300,000</strong>円</div>
+  <div class="calc-area">年額換算：<strong id="calc-yearly">390,000</strong>円</div>
 </div>
 
 <table class="spec-table">
@@ -748,25 +754,20 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   </div>
   <div class="f-op">×</div>
   <div class="f-box">
-    <div class="fl">入口正面・ファーストサイン補正</div>
-    <div class="fv">+20〜40%</div>
-  </div>
-  <div class="f-op">×</div>
-  <div class="f-box">
-    <div class="fl">恒久設置補正</div>
-    <div class="fv">+10〜20%</div>
+    <div class="fl">視認性・専用性・恒久設置補正</div>
+    <div class="fv">区分別 4段階</div>
   </div>
   <div class="f-op">=</div>
   <div class="f-result">
-    <div class="fl">本件 単価設定</div>
-    <div class="fv">10円／1㎝角・月</div>
+    <div class="fl">第8条 標準料金</div>
+    <div class="fv">6・8・10・13円／1㎝角・月</div>
   </div>
 </div>
 
 <div class="note">
   <p>
     <strong>【相場に関する前提】</strong><br>
-    看板使用料には、路線価のような公的な全国一律の単価表は存在しません。月額は、周辺賃料・視認性・設置方式・表示内容・テナント構成を総合して決まる相対価格です。本提案では、テナントビル共用部サインの公表相場を基準に、「入口正面であること」「恒久設置方式であること」の2点を明確な加算要因として反映し、単価 <strong>10円／1㎝角（1㎝×1㎝）・月</strong>（＝100,000円／㎡・月）を設定しています。標準仕様の50cm × 50cm（2,500㎠）× 1面の場合、月額25,000円が自動算出されます。
+    看板使用料には、路線価のような公的な全国一律の単価表は存在しません。月額は、周辺賃料・視認性・設置方式・表示内容・テナント構成を総合して決まる相対価格です。本提案では、テナントビル共用部サインの公表相場を基準に、位置（A/B/C区分）・性質（案内／専用／広告）・設置方法（仮設／半恒久／恒久）に応じて <strong>第8条 標準料金表（6・8・10・13円／1㎝角・月）</strong> を定めています。本件（2〜3階介護施設／入口正面／恒久設置）は <strong>第8条第4号（13円）</strong> が適用され、50cm × 50cm（2,500㎠）× 1面で月額32,500円となります。
   </p>
 </div>
 
@@ -831,26 +832,26 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   <div style="background:var(--gold-pale);padding:24px 32px;border-bottom:1px solid var(--gold-border);">
     <div style="font-family:var(--es);font-size:10px;font-weight:700;color:var(--gold);letter-spacing:3px;margin-bottom:8px;">PROPOSED PRICING</div>
     <div style="display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;">
-      <div style="font-family:var(--en);font-size:56px;font-weight:700;color:var(--black);line-height:1;"><span id="main-monthly">25,000</span><span style="font-family:var(--jp);font-size:18px;font-weight:500;color:var(--g5);">円／月</span></div>
+      <div style="font-family:var(--en);font-size:56px;font-weight:700;color:var(--black);line-height:1;"><span id="main-monthly">32,500</span><span style="font-family:var(--jp);font-size:18px;font-weight:500;color:var(--g5);">円／月</span></div>
       <div style="font-size:13px;color:var(--g6);line-height:1.9;">
-        税別 ／ 単価 10円／1㎝角・月<br>
-        年額換算：<strong id="main-yearly" style="color:var(--black);">300,000</strong>円 ／ 税別<br>
+        税別 ／ 第8条第4号（A区分・高視認）単価 13円／1㎝角・月<br>
+        年額換算：<strong id="main-yearly" style="color:var(--black);">390,000</strong>円 ／ 税別<br>
         合計面積 <strong id="main-area" style="color:var(--black);">2,500</strong>㎠ ／ <strong id="main-count" style="color:var(--black);">1</strong>面
       </div>
     </div>
   </div>
   <div style="padding:24px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--g2);">
     <div style="background:var(--white);padding:16px 14px;text-align:center;">
-      <div style="font-size:11px;color:var(--g5);margin-bottom:6px;">契約期間</div>
-      <div style="font-size:12px;font-weight:700;color:var(--black);line-height:1.5;">介護施設<br>賃貸借契約期間と同等</div>
+      <div style="font-size:11px;color:var(--g5);margin-bottom:6px;">適用区分</div>
+      <div style="font-size:12px;font-weight:700;color:var(--black);line-height:1.5;">第8条第4号<br>A区分・恒久・高視認</div>
     </div>
     <div style="background:var(--white);padding:16px 14px;text-align:center;">
       <div style="font-size:11px;color:var(--g5);margin-bottom:6px;">支払方法</div>
       <div style="font-size:12px;font-weight:700;color:var(--black);line-height:1.5;">毎月末<br>翌月分前払</div>
     </div>
     <div style="background:var(--white);padding:16px 14px;text-align:center;">
-      <div style="font-size:11px;color:var(--g5);margin-bottom:6px;">中途解約</div>
-      <div style="font-size:12px;font-weight:700;color:var(--black);line-height:1.5;">残期間<br>×月額賃料</div>
+      <div style="font-size:11px;color:var(--g5);margin-bottom:6px;">設置承認料</div>
+      <div style="font-size:12px;font-weight:700;color:var(--black);line-height:1.5;">50,000円<br>（税別・第11条）</div>
     </div>
     <div style="background:var(--white);padding:16px 14px;text-align:center;">
       <div style="font-size:11px;color:var(--g5);margin-bottom:6px;">設置方式</div>
@@ -875,43 +876,49 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   <tbody>
     <tr>
       <th>対象場所</th>
-      <td class="col-std" colspan="2" style="text-align:left;">さかえビル入口付近の指定壁面（位置・寸法・仕様はオーナー承認事項）</td>
+      <td class="col-std" colspan="2" style="text-align:left;">さかえビル入口付近の指定壁面（位置・寸法・仕様は甲の承認事項）</td>
     </tr>
     <tr>
       <th>表示内容</th>
-      <td class="col-std" colspan="2" style="text-align:left;">2〜3階入居 介護施設名、業態、案内表示、ロゴ等（オーナー承認範囲内）</td>
+      <td class="col-std" colspan="2" style="text-align:left;">2〜3階入居 介護施設名、業態、案内表示、ロゴ等（甲承認範囲内）</td>
     </tr>
     <tr>
       <th>設置仕様</th>
-      <td class="col-std" colspan="2" style="text-align:left;">「サイン仕様入力」参照（合計面積 <strong id="terms-area">2,500</strong>㎠ ／ <strong id="terms-count">1</strong>面 ／ <strong id="terms-types">1</strong>種類）／ 恒久設置</td>
+      <td class="col-std" colspan="2" style="text-align:left;">「サイン仕様入力」参照（合計面積 <strong id="terms-area">2,500</strong> ㎠ ／ <strong id="terms-count">1</strong> 面 ／ <strong id="terms-types">1</strong> 種類）／ 恒久設置</td>
     </tr>
     <tr>
-      <th>単価</th>
-      <td class="col-std" colspan="2" style="text-align:left;"><strong>10円／1㎝角（1㎝×1㎝）・月（税別）</strong>（＝100,000円／㎡・月）</td>
+      <th>適用区分</th>
+      <td class="col-std" colspan="2" style="text-align:left;"><strong>第8条第4号</strong>　A区分・専用表示サイン・恒久設置・建物入口正面の高視認位置</td>
+    </tr>
+    <tr>
+      <th>標準単価（第8条）</th>
+      <td class="col-std" colspan="2" style="text-align:left;">
+        ① C区分・案内・仮設：<strong>6円</strong> ／ ② B区分・案内・半恒久：<strong>8円</strong> ／ ③ A区分・専用・恒久：<strong>10円</strong> ／ ④ A区分・専用・恒久・高視認：<strong>13円</strong>　（単位：円／1㎝角・月・税別）
+      </td>
     </tr>
     <tr>
       <th>月額使用料</th>
-      <td class="col-std" colspan="2" style="text-align:left;"><strong><span id="terms-monthly">25,000</span>円／月（税別）</strong>　毎月末限り翌月分前払 ／ 日割計算なし<br>※合計面積 × 単価により自動算出。サイン追加・変更時は協議のうえ再算定。</td>
+      <td class="col-std" colspan="2" style="text-align:left;"><strong><span id="terms-monthly">32,500</span> 円／月（税別）</strong>　毎月末限り翌月分前払 ／ 日割計算なし<br>※合計面積 × 単価により自動算出。サイン追加・変更時は協議のうえ再算定。</td>
+    </tr>
+    <tr>
+      <th>設置承認料（第11条）</th>
+      <td class="col-std" colspan="2" style="text-align:left;"><strong>50,000円（税別）</strong>　恒久設置を行う場合の標準額</td>
+    </tr>
+    <tr>
+      <th>面積の算定方法</th>
+      <td class="col-std" colspan="2" style="text-align:left;">縦寸法（cm）× 横寸法（cm）（第9条）</td>
     </tr>
     <tr>
       <th>費用負担</th>
-      <td class="col-std" colspan="2" style="text-align:left;">製作・設置・申請・維持・修繕・撤去・原状回復 → 利用者負担</td>
+      <td class="col-std" colspan="2" style="text-align:left;">製作・設置・申請・維持・修繕・撤去・原状回復 → 乙（利用者）負担</td>
     </tr>
     <tr>
-      <th>契約期間</th>
-      <td class="col-std" colspan="2" style="text-align:left;"><strong>2〜3階入居 介護施設の賃貸借契約の締結期間と同等</strong><br>※介護施設の契約が更新・延長された場合、本サイン使用契約も同条件で連動更新</td>
+      <th>加算・減額</th>
+      <td class="col-std" colspan="2" style="text-align:left;">管理者判断により加算要素（第12条）・減額要素（第13条）の適用可</td>
     </tr>
     <tr>
-      <th>中途解約</th>
-      <td class="col-std" colspan="2" style="text-align:left;"><strong>残契約期間 × 月額使用料 相当額</strong>を解約金として支払うものとする<br>※例：残期間12か月の場合、<span id="terms-cancel">25,000</span>円 × 12か月 ＝ <span id="terms-cancel-total">300,000</span>円</td>
-    </tr>
-    <tr>
-      <th>原状回復</th>
-      <td class="col-std" colspan="2" style="text-align:left;">設置金具の撤去・下地補修・塗装補修 まで利用者負担</td>
-    </tr>
-    <tr>
-      <th>管轄</th>
-      <td class="col-std" colspan="2" style="text-align:left;">東京地方裁判所または東京簡易裁判所を第一審の専属的合意管轄</td>
+      <th>決定権限</th>
+      <td class="col-std" colspan="2" style="text-align:left;">建物所有者またはその指定する管理者に帰属（第15条）</td>
     </tr>
   </tbody>
 </table>
@@ -919,19 +926,79 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 <div class="note no-print">
   <p>
     <strong>【契約書本体について】</strong><br>
-    正式な契約書は上部タブ「<strong>契約書</strong>」よりご確認いただけます。本提案書で入力された金額・合計面積・設置面数・種類数は、契約書内の該当箇所に自動で反映されます。最終的な文言・条項は契約書原本によります。
+    正式な契約書「<strong>さかえビル 入口サイン使用許諾契約書</strong>」は上部タブ「契約書」よりご確認いただけます。本提案書で入力された金額・合計面積・設置面数・種類数は、契約書内の該当箇所に自動で反映されます。最終的な文言・条項は契約書原本によります。
   </p>
 </div>
 
 <hr class="sec-divider">
 
-<!-- 06 捺印欄（提案書） -->
-<div class="sec-label">06 — Acknowledgment</div>
+<!-- 06 別紙（提案書）— 本件適用例 -->
+<div class="sec-label">06 — Application Example</div>
+<div class="sec-title">別紙（提案書）─ 本件適用例</div>
+
+<table class="scale-table">
+  <thead>
+    <tr>
+      <th>項目</th>
+      <th class="col-std" colspan="2">内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>対象案件</th>
+      <td class="col-std" colspan="2" style="text-align:left;">
+        さかえビル入口、2階〜3階入居 介護施設、施設名表示、建物入口正面の高視認位置、恒久設置
+      </td>
+    </tr>
+    <tr>
+      <th>適用区分</th>
+      <td class="col-std" colspan="2" style="text-align:left;">
+        <strong>第8条第4号</strong>　A区分・専用表示サイン・恒久設置・建物入口正面の高視認位置（<strong>13円／1㎝角・月</strong>）
+      </td>
+    </tr>
+    <tr>
+      <th>サイン仕様</th>
+      <td class="col-std" colspan="2" style="text-align:left;">
+        合計面積 <strong id="att-area">2,500</strong> ㎠ ／ <strong id="att-count">1</strong> 面 ／ <strong id="att-types">1</strong> 種類（「サイン仕様入力」参照）
+      </td>
+    </tr>
+    <tr>
+      <th>月額使用料</th>
+      <td class="col-std" colspan="2" style="text-align:left;">
+        <strong><span id="att-monthly">32,500</span> 円（税別）</strong>　※合計面積 × 単価（区分別）により自動算出
+      </td>
+    </tr>
+    <tr>
+      <th>設置承認料</th>
+      <td class="col-std" colspan="2" style="text-align:left;">
+        <strong>50,000円（税別）</strong>　第11条に基づく標準額
+      </td>
+    </tr>
+    <tr>
+      <th>年額換算</th>
+      <td class="col-std" colspan="2" style="text-align:left;">
+        <strong><span id="att-yearly">390,000</span> 円（税別）</strong>　※月額 × 12か月
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <p>
+    <strong>【本件適用例について】</strong><br>
+    本別紙は、本提案書の「サイン仕様入力」欄に基づく、さかえビル 入口サイン使用許諾契約書 第10条（本ビルにおける本件基準額）の具体的算定例を示したものです。サイン仕様の入力値を変更すると、本欄の各数値も自動で再算定されます。
+  </p>
+</div>
+
+<hr class="sec-divider">
+
+<!-- 07 捺印欄（提案書） -->
+<div class="sec-label">07 — Acknowledgment</div>
 <div class="sec-title">ご承諾 捺印欄</div>
 
 <div class="seal-section">
   <div class="seal-intro">
-    上記のご提案内容についてご確認いただき、ご承諾いただけましたら、下記の捺印欄にご署名・ご捺印をお願いいたします。正式な契約条項は別紙「さかえビル 入口サイン使用契約書」によるものとします。
+    上記のご提案内容についてご確認いただき、ご承諾いただけましたら、下記の捺印欄にご署名・ご捺印をお願いいたします。正式な契約条項は別紙「さかえビル 入口サイン使用許諾契約書」によるものとします。
   </div>
 
   <div class="c-sig-area">
@@ -971,7 +1038,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 <div class="print-only print-cover">
   <div class="print-cover-tag">Entrance Signage — Contract</div>
   <div class="print-cover-doctype">契　約　書</div>
-  <div class="print-cover-title">さかえビル<br>入口サイン使用契約書</div>
+  <div class="print-cover-title">さかえビル<br>入口サイン使用許諾契約書</div>
   <div class="print-cover-sub">
     エントランス専用サインの設置および使用に関する契約<br>
     2〜3階 介護施設案内サイン ／ 共用部恒久設置
@@ -995,14 +1062,14 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 <div class="contract-main">
 
 <div class="contract-notice no-print">
-  <strong>【自動反映について】</strong> 本契約書内の <span style="color:var(--gold);font-weight:700;">ゴールド下線</span> で示された項目（月額使用料・合計面積・設置面数・種類数・解約金例示額）は、「提案書」タブで入力されたサイン仕様に基づき自動で反映されています。入力値を変更すると本契約書の該当箇所にも即時反映されます。
+  <strong>【自動反映について】</strong> 本契約書内の <span style="color:var(--gold);font-weight:700;">ゴールド下線</span> で示された項目（月額使用料・合計面積・設置面数・種類数）は、「提案書」タブで入力されたサイン仕様に基づき自動で反映されています。入力値を変更すると本契約書の該当箇所にも即時反映されます。
 </div>
 
-<div class="c-title">さかえビル 入口サイン使用契約書</div>
+<div class="c-title">さかえビル 入口サイン使用許諾契約書</div>
 
 <div class="c-parties">
   <div class="c-party">
-    <div class="c-party-role">賃貸人兼使用許諾者（以下「甲」という。）</div>
+    <div class="c-party-role">建物所有者兼許諾者（以下「甲」という。）</div>
     <div class="c-party-fields">
       住所：＿＿＿＿＿＿＿＿＿＿<br>
       名称：＿＿＿＿＿＿＿＿＿＿<br>
@@ -1010,7 +1077,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
     </div>
   </div>
   <div class="c-party">
-    <div class="c-party-role">賃借人兼使用者（以下「乙」という。）</div>
+    <div class="c-party-role">使用者（以下「乙」という。）</div>
     <div class="c-party-fields">
       住所：＿＿＿＿＿＿＿＿＿＿<br>
       名称：＿＿＿＿＿＿＿＿＿＿<br>
@@ -1020,193 +1087,234 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 </div>
 
 <div class="c-preamble">
-  甲および乙は、乙が入居するさかえビル（東京都練馬区豊玉北5-11-4）における入口サインの設置および使用に関し、以下のとおり契約を締結する。
+  甲および乙は、乙が入居するさかえビル（東京都練馬区豊玉北5-11-4）の入口部分その他共用部に設置するサイン、看板、案内表示その他これらに類する表示物（以下「サイン」という。）の使用に関し、本「入口サイン使用許諾基準」に基づき、以下のとおり契約を締結する。
 </div>
 
 <!-- 第1条 -->
 <div class="c-article">
   <div class="c-article-title">第1条（目的）</div>
   <div class="c-article-body">
-    本契約は、乙が、さかえビルの入口部分に乙の施設名その他案内表示を目的としたサインを設置し、使用することについて必要な条件を定めることを目的とする。
+    本基準は、さかえビルの入口部分その他共用部に設置するサインについて、建物の品位、美観、安全性および管理運営の統一を維持しつつ、適正な使用料を定めることを目的とする。
   </div>
 </div>
 
 <!-- 第2条 -->
 <div class="c-article">
-  <div class="c-article-title">第2条（対象場所）</div>
+  <div class="c-article-title">第2条（基本方針）</div>
   <div class="c-article-body">
-    <ol>
-      <li>甲が乙に使用を許諾する場所は、さかえビル入口付近の甲が指定する壁面部分とする。</li>
-      <li>対象場所の正確な位置、寸法、設置方法、表示内容および仕様は、甲の承認を得た内容に従うものとする。</li>
-      <li>乙は、甲の事前の書面または電磁的方法による承諾なく、対象場所、寸法、仕様その他承認内容を変更してはならない。</li>
+    さかえビルにおける入口サインの使用料は、単なる看板面積のみを基準として定めるものではなく、次の各要素を総合的に勘案して決定する。
+    <ol style="list-style:none;padding-left:8px;margin-top:6px;">
+      <li>(1) 建物入口における視認性</li>
+      <li>(2) 来訪者導線上の重要性</li>
+      <li>(3) 医療・介護・福祉用途との親和性</li>
+      <li>(4) 建物全体の美観および品位への影響</li>
+      <li>(5) 共用部の継続使用に伴う管理負担</li>
+      <li>(6) 壁面への恒久設置に伴う原状回復リスク</li>
+      <li>(7) 他入居者との公平性および将来運用上の整合性</li>
     </ol>
   </div>
 </div>
 
 <!-- 第3条 -->
 <div class="c-article">
-  <div class="c-article-title">第3条（サインの内容）</div>
+  <div class="c-article-title">第3条（対象）</div>
   <div class="c-article-body">
-    <ol>
-      <li>乙が設置できるサインの内容は、乙の施設名、業態、案内表示、ロゴその他甲が承認した表示内容に限る。</li>
-      <li>乙は、法令、公序良俗または建物の品位に反する表示をしてはならない。</li>
-      <li>甲は、建物全体の美観、他の入居者との調整、利用者導線その他管理上の必要がある場合、表示内容、文字サイズ、色調、素材その他について合理的な範囲で修正を求めることができる。</li>
+    本基準の対象は、次の各号のいずれかに該当するサインとする。
+    <ol style="list-style:none;padding-left:8px;margin-top:6px;">
+      <li>(1) さかえビル入口付近に設置する施設名、屋号、案内表示</li>
+      <li>(2) さかえビル共用部の壁面、柱面、入口付近等に設置する表示物</li>
+      <li>(3) ボルト固定、アンカー固定その他恒久設置を伴う表示物</li>
+      <li>(4) 管理者が本基準の適用が相当と認めた表示物</li>
     </ol>
   </div>
 </div>
 
 <!-- 第4条 -->
 <div class="c-article">
-  <div class="c-article-title">第4条（設置仕様）</div>
+  <div class="c-article-title">第4条（サインの位置区分）</div>
   <div class="c-article-body">
+    サイン使用料の算定にあたっては、対象位置を次の区分に分類する。
     <ol>
-      <li>乙が設置するサインの仕様は、別紙「サイン仕様入力」に定める寸法・面数・種類を基準とし、甲が承認した内容によるものとする。
-        <ul class="no-num" style="margin-top:6px;">
-          <li>現時点の承認仕様：合計面積 <span class="c-dynamic" id="ct-area">2,500</span> ㎠ ／ <span class="c-dynamic" id="ct-count">1</span> 面 ／ <span class="c-dynamic" id="ct-types">1</span> 種類</li>
-        </ul>
-      </li>
-      <li>当該サインは、甲の承認した恒久設置方式により設置するものとし、乙は甲の承認した施工方法に従うものとする。</li>
-      <li>設置工事は、乙の費用と責任において行うものとし、施工業者は甲が合理的に不適当と認める者であってはならない。</li>
-      <li>工事日時、工法、安全管理、養生方法その他必要事項は、事前に甲へ届け出て承認を得るものとする。</li>
+      <li><strong>A区分</strong>：建物入口正面、または入口導線上において最も高い視認性を有する位置。来訪者、利用者家族、関係事業者等が最初に認識する建物の顔となる場所をいう。</li>
+      <li><strong>B区分</strong>：入口周辺で視認性は高いが、A区分ほどの第一視認性までは有しない位置。</li>
+      <li><strong>C区分</strong>：建物内外において補助的な案内として機能する位置。</li>
     </ol>
   </div>
 </div>
 
-<!-- 第5条 使用料 -->
+<!-- 第5条 -->
 <div class="c-article">
-  <div class="c-article-title">第5条（使用料）</div>
+  <div class="c-article-title">第5条（サインの性質区分）</div>
   <div class="c-article-body">
+    使用料算定にあたっては、サインの性質を次のとおり区分する。
     <ol>
-      <li>乙は、入口サイン使用料として、甲に対し<strong>月額金 <span class="c-dynamic" id="ct-monthly">25,000</span> 円（消費税別）</strong>を支払う。
-        <ul class="no-num" style="margin-top:6px;">
-          <li>使用料は、単価 <span class="c-emphasis">10円／1㎝角（1㎝×1㎝）・月（税別）</span> × 合計面積により算定する。</li>
-          <li>算定内訳：単価 10円（1㎝角あたり）× 合計面積 <span class="c-dynamic" id="ct-calc-area">2,500</span> ㎠ ＝ 月額 <span class="c-dynamic" id="ct-calc-monthly">25,000</span> 円（税別）</li>
-        </ul>
-      </li>
-      <li>使用料は、毎月末日限り翌月分を支払うものとし、支払方法は甲の指定する方法による。</li>
-      <li>月の途中で本契約が開始または終了する場合であっても、1か月分の使用料を支払うものとし、日割計算は行わない。</li>
-      <li>甲乙協議のうえ、サインの追加・変更・撤去、経済事情の変動、周辺相場、建物利用状況その他相当の事情がある場合には、使用料を改定することができる。</li>
+      <li><strong>案内サイン</strong>：施設名、階数案内、来訪者向け表示等、建物利用上の案内を主たる目的とするもの。</li>
+      <li><strong>専用表示サイン</strong>：特定テナントの名称、ロゴ、ブランド表示等、特定利用者に向けた独占的表示価値を有するもの。</li>
+      <li><strong>広告性の強いサイン</strong>：案内を超えて、宣伝、募集、集客、営業促進等の性格を強く有するもの。</li>
     </ol>
   </div>
 </div>
 
-<!-- 第6条 費用負担 -->
+<!-- 第6条 -->
 <div class="c-article">
-  <div class="c-article-title">第6条（費用負担）</div>
+  <div class="c-article-title">第6条（設置方法区分）</div>
   <div class="c-article-body">
+    使用料算定にあたっては、設置方法も考慮する。
     <ol>
-      <li>サインの製作費、設置費、申請費、維持管理費、修繕費、撤去費、原状回復費その他本契約に基づく一切の費用は、乙の負担とする。</li>
-      <li>乙の責めに帰すべき事由により、建物、壁面、他の設備または第三者に損害が生じた場合、乙はその一切を賠償しなければならない。</li>
+      <li><strong>仮設表示</strong>：貼付、差込、簡易ビス留め等により容易に取り外し可能なもの。</li>
+      <li><strong>半恒久設置</strong>：専用金具等を用いるが、比較的軽微な復旧で撤去可能なもの。</li>
+      <li><strong>恒久設置</strong>：ボルト固定、アンカー固定、コンクリート壁面への穴あけ等を伴い、撤去時に補修・原状回復が必要となるもの。</li>
     </ol>
   </div>
 </div>
 
-<!-- 第7条 管理および維持 -->
+<!-- 第7条 -->
 <div class="c-article">
-  <div class="c-article-title">第7条（管理および維持）</div>
+  <div class="c-article-title">第7条（算定の基本原則）</div>
   <div class="c-article-body">
-    <ol>
-      <li>乙は、サインを常に安全かつ良好な状態に維持管理しなければならない。</li>
-      <li>サインの汚損、破損、劣化、脱落のおそれその他管理上の問題が生じた場合、乙は甲の求めに従い、直ちに補修、交換または撤去を行うものとする。</li>
-      <li>甲は、建物管理上必要がある場合、乙に対し、サインの補修、移設、仕様変更その他合理的な措置を求めることができる。</li>
-    </ol>
-  </div>
-</div>
-
-<!-- 第8条 禁止事項 -->
-<div class="c-article">
-  <div class="c-article-title">第8条（禁止事項）</div>
-  <div class="c-article-body">
-    乙は、次の各号に掲げる行為をしてはならない。
+    入口サイン使用料は、以下の考え方に基づき決定する。
     <ol style="list-style:none;padding-left:8px;margin-top:6px;">
-      <li>(1) 甲の承認を得ずにサインの内容、寸法、形状、色彩、素材または設置方法を変更すること</li>
-      <li>(2) 対象場所を第三者に転貸し、または使用させること</li>
-      <li>(3) 他の入居者、来訪者または近隣住民に迷惑または支障を及ぼす表示を行うこと</li>
-      <li>(4) 建物の外観、品位または安全を損なう行為</li>
-      <li>(5) 法令または行政指導に違反する行為</li>
-      <li>(6) その他甲が建物管理上不適当と認める行為</li>
+      <li>(1) 面積のみで一律決定しない。</li>
+      <li>(2) 視認性が高い位置ほど使用料を高く設定する。</li>
+      <li>(3) 専用性が高い表示ほど使用料を高く設定する。</li>
+      <li>(4) 恒久設置であるほど、管理負担および原状回復リスクを加味して高く設定する。</li>
+      <li>(5) 建物の品位、美観維持、安全管理、他テナントとの公平性を損なわない範囲で設定する。</li>
+      <li>(6) 将来、他テナントにも同様条件を適用できる水準で設定する。</li>
     </ol>
   </div>
 </div>
 
-<!-- 第9条 契約期間 -->
+<!-- 第8条 標準料金 -->
 <div class="c-article">
-  <div class="c-article-title">第9条（契約期間）</div>
+  <div class="c-article-title">第8条（標準料金）</div>
   <div class="c-article-body">
+    さかえビルにおける入口サインの標準料金は、次のとおりとする。
     <ol>
-      <li>本契約の期間は、<span class="c-emphasis">乙が入居するさかえビル2〜3階の介護施設に係る賃貸借契約の締結期間と同等</span>とする。</li>
-      <li>前項の賃貸借契約が更新または延長された場合、本契約も当該契約と同条件で連動して更新されるものとする。</li>
-      <li>前項の賃貸借契約が終了した場合、本契約も当該終了日をもって同時に終了する。</li>
+      <li><strong>C区分 ／ 案内サイン ／ 仮設表示</strong>：月額 <span class="c-emphasis">6円</span>（税別）／ 1㎝角（1㎝×1㎝）を標準とする。</li>
+      <li><strong>B区分 ／ 案内サイン ／ 半恒久設置</strong>：月額 <span class="c-emphasis">8円</span>（税別）／ 1㎝角（1㎝×1㎝）を標準とする。</li>
+      <li><strong>A区分 ／ 専用表示サイン ／ 恒久設置</strong>：月額 <span class="c-emphasis">10円</span>（税別）／ 1㎝角（1㎝×1㎝）を標準とする。</li>
+      <li><strong>A区分 ／ 専用表示サイン ／ 恒久設置 ／ 建物入口正面の高視認位置</strong>：月額 <span class="c-emphasis">13円</span>（税別）／ 1㎝角（1㎝×1㎝）を標準とする。</li>
     </ol>
   </div>
 </div>
 
-<!-- 第10条 中途解約 -->
+<!-- 第9条 -->
 <div class="c-article">
-  <div class="c-article-title">第10条（中途解約）</div>
+  <div class="c-article-title">第9条（面積の算定方法）</div>
   <div class="c-article-body">
     <ol>
-      <li>乙が本契約を中途解約するときは、1か月前までに甲に対して書面により通知するとともに、<span class="c-emphasis">残契約期間に相当する月額使用料の総額</span>を解約金として甲に支払うものとする。
+      <li>使用料算定の基礎となる面積は、サインの <strong>縦寸法（cm）× 横寸法（cm）</strong> により算出する。</li>
+      <li>円形、楕円形その他の変形サインについても、原則として当該サインを包含する外接四角形の縦寸法および横寸法により算出する。</li>
+      <li>小数点以下の寸法が生じる場合は、各辺につき小数点以下を切り上げるものとする。</li>
+      <li>厚み、突き出し幅その他立体的要素は、別途管理上必要がある場合を除き、面積計算には含めない。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- 第10条 本件基準額 -->
+<div class="c-article">
+  <div class="c-article-title">第10条（本ビルにおける本件基準額）</div>
+  <div class="c-article-body">
+    <ol>
+      <li>さかえビル入口において、2階〜3階入居の介護施設の施設名表示を、建物入口正面の高視認位置に恒久設置する場合は、原則として <span class="c-emphasis">第8条第4号を適用</span> する。</li>
+      <li>本契約における実際の月額使用料は、別紙（提案書）の「サイン仕様入力」欄に記載された仕様に基づき算定するものとし、次のとおりとする。
         <ul class="no-num" style="margin-top:6px;">
-          <li>算定式：月額使用料 <span class="c-dynamic" id="ct-cancel-monthly">25,000</span> 円 × 残契約期間（か月）</li>
-          <li>例：残期間12か月の場合、<span class="c-dynamic" id="ct-cancel-eg">25,000</span> 円 × 12か月 ＝ <span class="c-dynamic" id="ct-cancel-total">300,000</span> 円</li>
+          <li>承認仕様：合計面積 <span class="c-dynamic" id="ct-area">2,500</span> ㎠ ／ <span class="c-dynamic" id="ct-count">1</span> 面 ／ <span class="c-dynamic" id="ct-types">1</span> 種類</li>
+          <li>月額使用料：<span class="c-dynamic" id="ct-monthly">32,500</span> 円（税別）</li>
         </ul>
       </li>
-      <li>甲は、建物管理上の必要、法令上の要請、大規模修繕、外壁工事、用途変更その他やむを得ない事情がある場合、乙に対し1か月前までに通知することにより、本契約を解約し、またはサインの移設もしくは撤去を求めることができる。</li>
-      <li>前項の場合、甲は乙に対し、乙が支出した設置費、製作費その他の補償義務を負わない。</li>
+      <li>前項の金額は、入口正面の高視認位置における専用表示価値、医療・介護用途建物としての案内価値、恒久設置に伴う管理負担および原状回復リスクを踏まえた基準額とする。</li>
     </ol>
   </div>
 </div>
 
-<!-- 第11条 解除 -->
+<!-- 第11条 設置承認料 -->
 <div class="c-article">
-  <div class="c-article-title">第11条（解除）</div>
-  <div class="c-article-body">
-    甲は、乙が次の各号のいずれかに該当した場合、何らの催告を要せず本契約を解除することができる。
-    <ol style="list-style:none;padding-left:8px;margin-top:6px;">
-      <li>(1) 本契約に違反し、甲が相当期間を定めて是正を求めたにもかかわらず改善しないとき</li>
-      <li>(2) 使用料その他の支払を怠ったとき</li>
-      <li>(3) 建物の品位または管理に重大な支障を及ぼしたとき</li>
-      <li>(4) 法令違反その他社会的信用を著しく失墜させる行為を行ったとき</li>
-      <li>(5) 差押え、破産、民事再生、会社更生、特別清算その他これらに準ずる手続開始の申立てがあったとき</li>
-      <li>(6) その他本契約を継続しがたい重大な事由が生じたとき</li>
-    </ol>
-  </div>
-</div>
-
-<!-- 第12条 原状回復 -->
-<div class="c-article">
-  <div class="c-article-title">第12条（原状回復）</div>
+  <div class="c-article-title">第11条（設置承認料）</div>
   <div class="c-article-body">
     <ol>
-      <li>本契約が終了した場合、乙は自己の費用と責任において、直ちにサインを撤去し、対象場所を原状に回復しなければならない。</li>
-      <li>前項には、設置金具の撤去、下地補修、塗装補修その他甲が必要と認める壁面補修を含むものとする。</li>
-      <li>乙が前各項の義務を履行しない場合、甲は乙に代わってこれを行うことができ、その費用を乙に請求できるものとする。</li>
+      <li>恒久設置を伴う場合は、月額使用料とは別に、設置承認料を設定することができる。</li>
+      <li>設置承認料は、位置指定、共用部使用調整、施工承認、壁面使用許諾、美観調整その他管理負担の対価として取り扱う。</li>
+      <li>標準額は、次のとおりとする。
+        <ul class="no-num" style="margin-top:6px;">
+          <li>半恒久設置：<strong>30,000円</strong>（税別）</li>
+          <li>恒久設置：<strong>50,000円</strong>（税別）</li>
+        </ul>
+      </li>
+      <li>本件のように、恒久設置を行う場合の設置承認料は、<span class="c-emphasis">50,000円（税別）</span> を標準とする。</li>
     </ol>
   </div>
 </div>
 
-<!-- 第13条 免責 -->
+<!-- 第12条 -->
 <div class="c-article">
-  <div class="c-article-title">第13条（免責）</div>
+  <div class="c-article-title">第12条（加算要素）</div>
   <div class="c-article-body">
-    天災地変、建物事故、行政指導、法令改正、第三者行為その他甲の責めに帰することができない事由により、乙のサイン設置または使用ができなくなった場合、甲はこれにより乙に生じた損害について責任を負わない。
+    次の各号のいずれかに該当する場合は、管理者判断により使用料または設置承認料を加算することができる。
+    <ol style="list-style:none;padding-left:8px;margin-top:6px;">
+      <li>(1) デザイン審査、複数回修正、特別な統一管理を要する場合</li>
+      <li>(2) 夜間視認性への配慮、照明設備等を伴う場合</li>
+      <li>(3) 工事条件が複雑である場合</li>
+      <li>(4) 他テナントとの調整が必要な場合</li>
+      <li>(5) 特に高い独占的表示価値を認める場合</li>
+    </ol>
   </div>
 </div>
 
-<!-- 第14条 協議事項 -->
+<!-- 第13条 -->
 <div class="c-article">
-  <div class="c-article-title">第14条（協議事項）</div>
+  <div class="c-article-title">第13条（減額要素）</div>
   <div class="c-article-body">
-    本契約に定めのない事項または本契約の解釈について疑義が生じた場合は、甲乙誠意をもって協議し、解決するものとする。
+    次の各号のいずれかに該当する場合は、管理者判断により減額することができる。
+    <ol style="list-style:none;padding-left:8px;margin-top:6px;">
+      <li>(1) 建物全体の案内板の一部として統一表示する場合</li>
+      <li>(2) 独占性が弱く、補助的な案内にとどまる場合</li>
+      <li>(3) 仮設的で原状回復負担が極めて軽微な場合</li>
+      <li>(4) 建物全体の運営上、特に必要性が高い案内表示である場合</li>
+    </ol>
   </div>
 </div>
 
-<!-- 第15条 管轄 -->
+<!-- 第14条 -->
 <div class="c-article">
-  <div class="c-article-title">第15条（管轄）</div>
+  <div class="c-article-title">第14条（賃料等との関係）</div>
   <div class="c-article-body">
-    本契約に関して訴訟の必要が生じた場合、東京地方裁判所または東京簡易裁判所を第一審の専属的合意管轄裁判所とする。
+    <ol>
+      <li>入口サイン使用料は、建物の賃料、共益費その他の費用とは別建てとすることができる。</li>
+      <li>ただし、入居契約条件、運営方針または特別な事情により、賃料または共益費に含めて整理することを妨げない。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- 第15条 -->
+<div class="c-article">
+  <div class="c-article-title">第15条(決定権限)</div>
+  <div class="c-article-body">
+    使用料、設置承認料、加算・減額の有無その他本基準の適用に関する最終決定権限は、建物所有者またはその指定する管理者に帰属する。
+  </div>
+</div>
+
+<!-- 第16条 -->
+<div class="c-article">
+  <div class="c-article-title">第16条（例外）</div>
+  <div class="c-article-body">
+    本基準により難い特別事情がある場合、建物所有者または管理者は、建物全体の利益、美観、安全、運営方針および他入居者との公平性を踏まえ、個別に金額および条件を決定することができる。
+  </div>
+</div>
+
+<!-- 第17条 -->
+<div class="c-article">
+  <div class="c-article-title">第17条(改定)</div>
+  <div class="c-article-body">
+    建物価値、周辺相場、管理コスト、法令改正、運営方針その他合理的な事情が生じた場合、建物所有者または管理者は、本基準を改定することができる。
+  </div>
+</div>
+
+<!-- 第18条 -->
+<div class="c-article">
+  <div class="c-article-title">第18条（附則）</div>
+  <div class="c-article-body">
+    本基準は、20＿＿年＿＿月＿＿日より適用する。
   </div>
 </div>
 
@@ -1220,14 +1328,14 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 
 <div class="c-sig-area">
   <div class="c-sig-box">
-    <div class="c-sig-label">甲<span class="role">賃貸人兼使用許諾者</span></div>
+    <div class="c-sig-label">甲<span class="role">建物所有者兼許諾者</span></div>
     <div class="c-sig-field">住所：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
     <div class="c-sig-field">名称：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
     <div class="c-sig-field">代表者：＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
     <div style="clear:both;overflow:hidden;"><span class="c-sig-seal">印</span></div>
   </div>
   <div class="c-sig-box">
-    <div class="c-sig-label">乙<span class="role">賃借人兼使用者</span></div>
+    <div class="c-sig-label">乙<span class="role">使用者</span></div>
     <div class="c-sig-field">住所：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
     <div class="c-sig-field">名称：＿＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
     <div class="c-sig-field">代表者：＿＿＿＿＿＿＿＿＿＿＿＿＿</div>
@@ -1237,7 +1345,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 
 <!-- 印刷専用フッター -->
 <div class="print-only print-footer">
-  <strong>さかえビル</strong> 入口サイン使用契約書 ／ DOC: SKE-SIGN-2026-v1 ／ 2026年4月
+  <strong>さかえビル</strong> 入口サイン使用許諾契約書 ／ DOC: SKE-SIGN-2026-v1 ／ 2026年4月
 </div>
 
 </div><!-- /contract-main -->
@@ -1255,26 +1363,45 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 
 <script>
 (function(){
-  const UNIT_PRICE_PER_CM2 = 10;
+  // 第8条 標準料金表（円／1㎝角・月 税別）
+  const RATE_TABLE = [
+    { id: 1, rate: 6,  label: 'C区分 ／ 案内・仮設' },
+    { id: 2, rate: 8,  label: 'B区分 ／ 案内・半恒久' },
+    { id: 3, rate: 10, label: 'A区分 ／ 専用・恒久' },
+    { id: 4, rate: 13, label: 'A区分 ／ 専用・恒久・高視認' }
+  ];
+  const DEFAULT_RATE_ID = 4; // 第8条第4号 A区分・高視認（本件基準）
+
   const tableBody = document.getElementById('sign-rows');
   const btnAdd = document.getElementById('btn-add');
 
   const fmt = (n) => Math.round(n).toLocaleString('ja-JP');
   const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
 
-  function addRow(w, h, c){
+  function buildRateOptions(selectedId){
+    return RATE_TABLE.map(r =>
+      '<option value="' + r.id + '" data-rate="' + r.rate + '"'
+      + (r.id === selectedId ? ' selected' : '')
+      + '>第' + r.id + '号：' + r.label + '（' + r.rate + '円）</option>'
+    ).join('');
+  }
+
+  function addRow(w, h, c, rateId){
+    rateId = rateId || DEFAULT_RATE_ID;
     const tr = document.createElement('tr');
     tr.innerHTML = ''
       + '<td class="no-cell">—</td>'
+      + '<td class="rate-sel-cell"><select class="in-rate">' + buildRateOptions(rateId) + '</select></td>'
       + '<td><input type="number" class="in-w" value="' + w + '" min="1" max="500" step="1"><span class="u-cm">cm</span></td>'
       + '<td><input type="number" class="in-h" value="' + h + '" min="1" max="500" step="1"><span class="u-cm">cm</span></td>'
       + '<td><input type="number" class="in-c" value="' + c + '" min="1" max="99" step="1"><span class="u-cm">面</span></td>'
+      + '<td class="rate-cell">—</td>'
       + '<td class="area-cell">—</td>'
       + '<td class="sub-cell">—</td>'
       + '<td class="no-print"><button type="button" class="btn-remove">削除</button></td>';
     tableBody.appendChild(tr);
 
-    tr.querySelectorAll('input').forEach(el => {
+    tr.querySelectorAll('input, select').forEach(el => {
       el.addEventListener('input', recalcAll);
       el.addEventListener('change', recalcAll);
     });
@@ -1295,17 +1422,22 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
     let totalCount = 0;
     let signTypes = 0;
     let totalMonthly = 0;
+    const rates = [];   // 使われている単価
     const rows = tableBody.querySelectorAll('tr');
 
     rows.forEach((tr, idx) => {
+      const sel = tr.querySelector('.in-rate');
+      const selOpt = sel.options[sel.selectedIndex];
+      const rate = parseInt(selOpt.dataset.rate) || 0;
       const w = Math.max(1, parseInt(tr.querySelector('.in-w').value) || 0);
       const h = Math.max(1, parseInt(tr.querySelector('.in-h').value) || 0);
       const c = Math.max(1, parseInt(tr.querySelector('.in-c').value) || 0);
       const unitArea = w * h;
       const rowArea  = unitArea * c;
-      const rowSub   = rowArea * UNIT_PRICE_PER_CM2;
+      const rowSub   = rowArea * rate;
 
       tr.querySelector('.no-cell').textContent   = (idx + 1);
+      tr.querySelector('.rate-cell').textContent = rate + '円';
       tr.querySelector('.area-cell').textContent = fmt(rowArea) + ' ㎠';
       tr.querySelector('.sub-cell').textContent  = fmt(rowSub);
 
@@ -1313,56 +1445,71 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
       totalCount   += c;
       signTypes    += 1;
       totalMonthly += rowSub;
+      if (rates.indexOf(rate) === -1) rates.push(rate);
 
       tr.querySelector('.btn-remove').disabled = (rows.length === 1);
     });
 
     const yearly = totalMonthly * 12;
+    // 表示用の単価文字列
+    rates.sort((a,b) => a - b);
+    const rateStr = rates.length === 1
+      ? rates[0] + '円'
+      : rates[0] + '〜' + rates[rates.length-1] + '円';
 
+    // テーブル合計
     setText('foot-area',    fmt(totalArea));
     setText('foot-monthly', fmt(totalMonthly));
 
+    // 01 KPI
     setText('kpi-types',   signTypes);
     setText('kpi-count',   totalCount);
     setText('kpi-area',    fmt(totalArea));
     setText('kpi-monthly', fmt(totalMonthly));
 
+    // 自動算出ディスプレイ
     setText('calc-area',    fmt(totalArea));
     setText('calc-monthly', fmt(totalMonthly));
     setText('calc-yearly',  fmt(yearly));
+    setText('calc-rate',    rateStr);
 
+    // スペックテーブル
     setText('spec-area',  fmt(totalArea));
     setText('spec-count', totalCount);
     setText('spec-types', signTypes);
 
+    // 04 メイン料金
     setText('main-monthly', fmt(totalMonthly));
     setText('main-yearly',  fmt(yearly));
     setText('main-area',    fmt(totalArea));
     setText('main-count',   totalCount);
 
-    setText('terms-area',        fmt(totalArea));
-    setText('terms-count',       totalCount);
-    setText('terms-types',       signTypes);
-    setText('terms-monthly',     fmt(totalMonthly));
-    setText('terms-cancel',      fmt(totalMonthly));
-    setText('terms-cancel-total',fmt(totalMonthly * 12));
+    // 05 契約条件
+    setText('terms-area',    fmt(totalArea));
+    setText('terms-count',   totalCount);
+    setText('terms-types',   signTypes);
+    setText('terms-monthly', fmt(totalMonthly));
 
-    setText('ct-area',          fmt(totalArea));
-    setText('ct-count',         totalCount);
-    setText('ct-types',         signTypes);
-    setText('ct-monthly',       fmt(totalMonthly));
-    setText('ct-calc-area',     fmt(totalArea));
-    setText('ct-calc-monthly',  fmt(totalMonthly));
-    setText('ct-cancel-monthly',fmt(totalMonthly));
-    setText('ct-cancel-eg',     fmt(totalMonthly));
-    setText('ct-cancel-total',  fmt(totalMonthly * 12));
+    // 06 別紙（提案書）
+    setText('att-area',    fmt(totalArea));
+    setText('att-count',   totalCount);
+    setText('att-types',   signTypes);
+    setText('att-monthly', fmt(totalMonthly));
+    setText('att-yearly',  fmt(yearly));
+
+    // 契約書（自動反映）
+    setText('ct-area',    fmt(totalArea));
+    setText('ct-count',   totalCount);
+    setText('ct-types',   signTypes);
+    setText('ct-monthly', fmt(totalMonthly));
   }
 
   btnAdd.addEventListener('click', () => {
-    addRow(50, 50, 1);
+    addRow(50, 50, 1, DEFAULT_RATE_ID);
   });
 
-  addRow(50, 50, 1);
+  // 初期行：50×50cm × 1面、第8条第4号（13円）＝ 32,500円／月
+  addRow(50, 50, 1, DEFAULT_RATE_ID);
 
   // タブ切替
   const tabs = document.querySelectorAll('.tab-btn');
