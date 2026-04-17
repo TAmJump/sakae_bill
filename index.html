@@ -189,7 +189,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
 @media print {
   @page {
     size: A4;
-    margin: 20mm 16mm 18mm 16mm;
+    margin: 18mm 22mm 18mm 22mm;
   }
   @page :first {
     margin-top: 0;
@@ -231,29 +231,29 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   /* 印刷専用要素を表示 */
   .print-only{display:block!important;}
 
-  /* 画面用ヘッダー非表示（印刷専用表紙を使う） */
+  /* 画面用ヘッダー非表示 */
   .doc-header{display:none!important;}
 
   /* ── PRINT COVER ── */
   .print-cover{
-    padding:35mm 10mm 24mm;
+    padding:28mm 0 20mm;
     border-bottom:2pt solid var(--gold);
-    margin-bottom:12mm;
+    margin-bottom:14mm;
     page-break-after:avoid;
     position:relative;
   }
   .print-cover::before{
     content:"";
     position:absolute;
-    top:18mm;
-    left:10mm;
-    right:10mm;
+    top:14mm;
+    left:0;
+    right:0;
     height:0.5pt;
     background:var(--gold);
   }
   .print-cover-tag{
     font-family:var(--es);
-    font-size:8pt;
+    font-size:9pt;
     font-weight:700;
     color:var(--gold);
     letter-spacing:6pt;
@@ -262,25 +262,25 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   }
   .print-cover-doctype{
     font-family:var(--jp-serif);
-    font-size:11pt;
+    font-size:13pt;
     color:var(--g6);
-    letter-spacing:8pt;
-    margin-bottom:6mm;
+    letter-spacing:10pt;
+    margin-bottom:8mm;
     font-weight:500;
   }
   .print-cover-title{
     font-family:var(--jp-serif);
-    font-size:28pt;
+    font-size:32pt;
     font-weight:900;
     color:var(--black);
     line-height:1.4;
     letter-spacing:2pt;
-    margin-bottom:12mm;
+    margin-bottom:14mm;
   }
   .print-cover-sub{
-    font-size:10pt;
+    font-size:11pt;
     color:var(--g6);
-    line-height:1.9;
+    line-height:2;
     margin-bottom:10mm;
     padding-left:4mm;
     border-left:2pt solid var(--gold);
@@ -288,10 +288,10 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
   .print-cover-meta{
     display:flex;
     justify-content:space-between;
-    margin-top:18mm;
-    padding-top:6mm;
+    margin-top:16mm;
+    padding-top:5mm;
     border-top:0.5pt solid var(--g3);
-    font-size:8pt;
+    font-size:9pt;
     color:var(--g5);
     font-family:var(--es);
     letter-spacing:1pt;
@@ -300,138 +300,177 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
     display:block;
     font-family:var(--jp);
     color:var(--gold);
-    font-size:9pt;
+    font-size:10pt;
     margin-bottom:1mm;
     letter-spacing:2pt;
   }
 
-  /* ── PRINT RUNNING HEADER (各ページ上部) ── */
-  .print-running-header{
-    display:none; /* @page margin で対応 */
-  }
-
-  /* ── MAIN CONTENT 印刷調整 ── */
+  /* ── MAIN CONTENT ── */
   .main,.contract-main{
     max-width:100%;
+    width:100%;
     padding:0 0 10mm;
     margin:0 auto;
   }
 
-  .sec-label{font-size:7.5pt;letter-spacing:3pt;margin-top:8mm;page-break-after:avoid;}
-  .sec-title{font-size:13pt;margin-bottom:5mm;padding-bottom:3mm;border-bottom-width:1.5pt;page-break-after:avoid;}
-  .sec-divider{margin:8mm 0;border-top:0.5pt solid var(--g3);}
+  .sec-label{font-size:8pt;letter-spacing:3pt;margin-top:10mm;page-break-after:avoid;}
+  .sec-title{font-size:15pt;margin-bottom:6mm;padding-bottom:3mm;border-bottom-width:1.5pt;page-break-after:avoid;}
+  .sec-divider{margin:10mm 0;border-top:0.5pt solid var(--g3);}
 
-  /* KPI グリッド */
-  .kpi-grid{margin-bottom:5mm;page-break-inside:avoid;}
-  .kpi{padding:4mm 3mm;}
-  .kpi-v{font-size:16pt;}
-  .kpi-v .u{font-size:8pt;}
-  .kpi-l{font-size:7.5pt;}
+  /* ── KPI グリッド（印刷時は4列＋月額フル幅） ── */
+  .kpi-grid{
+    grid-template-columns:repeat(4,1fr);
+    margin-bottom:8mm;
+    page-break-inside:avoid;
+  }
+  .kpi{padding:5mm 3mm;}
+  .kpi-v{font-size:22pt;font-weight:700;}
+  .kpi-v .u{font-size:10pt;margin-left:2pt;}
+  .kpi-l{font-size:8.5pt;margin-top:2mm;line-height:1.5;}
+  .kpi.accent{
+    grid-column:1 / -1;
+    padding:8mm 6mm;
+    border-top:2pt solid var(--gold);
+  }
+  .kpi.accent .kpi-v{font-size:32pt;letter-spacing:1pt;}
+  .kpi.accent .kpi-v .u{font-size:14pt;}
+  .kpi.accent .kpi-l{font-size:9.5pt;margin-top:3mm;letter-spacing:2pt;}
 
-  /* サイン仕様入力 → 印刷時は通常テーブルに */
-  .sign-input-section{page-break-inside:avoid;margin-bottom:4mm;}
-  .sign-input-header{padding:3mm 5mm;}
-  .sign-input-title{font-size:10pt;}
-  .sign-input-unit{font-size:9pt;}
-  .sign-input-table{font-size:9pt;}
-  .sign-input-table thead th{padding:2.5mm 3mm;font-size:7.5pt;}
-  .sign-input-table tbody td{padding:3mm 3mm;}
+  /* ── サイン仕様入力 ── */
+  .sign-input-section{page-break-inside:avoid;margin-bottom:6mm;}
+  .sign-input-header{padding:4mm 6mm;}
+  .sign-input-title{font-size:11pt;}
+  .sign-input-unit{font-size:10pt;}
+  .sign-input-unit strong{font-size:13pt;}
+  .sign-input-table{font-size:10pt;}
+  .sign-input-table thead th{padding:3mm 2mm;font-size:8.5pt;}
+  .sign-input-table tbody td{padding:4mm 2mm;}
   .sign-input-table tbody td input{
     border:none!important;
     background:transparent!important;
     padding:0!important;
     width:auto!important;
-    min-width:10mm;
+    min-width:8mm;
     font-weight:700;
     color:var(--black)!important;
-    font-size:10pt;
+    font-size:13pt;
   }
-  .sign-input-table tbody td .u-cm{font-size:8pt;}
-  .sign-input-table tfoot td{padding:3.5mm 3mm;font-size:11pt;}
+  .sign-input-table tbody td.area-cell,
+  .sign-input-table tbody td.sub-cell{font-size:13pt;}
+  .sign-input-table tbody td .u-cm{font-size:9pt;}
+  .sign-input-table tfoot td{padding:5mm 3mm;font-size:15pt;}
+  .sign-input-table tfoot td.tot-label{font-size:10pt;}
 
-  /* 自動算出ディスプレイ */
-  .calc-display{padding:3mm 5mm;margin-bottom:6mm;page-break-inside:avoid;}
-  .calc-display .calc-l{font-size:8pt;}
-  .calc-display .calc-formula{font-size:9.5pt;}
-  .calc-display .calc-area{font-size:10pt;}
+  /* ── 自動算出ディスプレイ ── */
+  .calc-display{padding:4mm 6mm;margin-bottom:8mm;page-break-inside:avoid;}
+  .calc-display .calc-l{font-size:9pt;}
+  .calc-display .calc-formula{font-size:11pt;}
+  .calc-display .calc-formula strong{font-size:13pt;}
+  .calc-display .calc-area{font-size:11pt;}
+  .calc-display .calc-area strong{font-size:13pt;}
 
-  /* スペックテーブル */
-  .spec-table{font-size:9.5pt;margin-bottom:6mm;}
-  .spec-table th,.spec-table td{padding:2.5mm 4mm;}
+  /* ── スペックテーブル ── */
+  .spec-table{font-size:10.5pt;margin-bottom:8mm;}
+  .spec-table th,.spec-table td{padding:3mm 4mm;}
+  .spec-table td strong{font-size:11.5pt;}
   .spec-table tr{page-break-inside:avoid;}
 
-  /* ドライバーグリッド */
-  .driver-grid{gap:3mm;margin-bottom:6mm;}
-  .driver-card{padding:4mm;page-break-inside:avoid;}
-  .driver-val{font-size:14pt;}
+  /* ── ドライバーグリッド ── */
+  .driver-grid{gap:3mm;margin-bottom:8mm;}
+  .driver-card{padding:5mm 4mm;page-break-inside:avoid;}
+  .driver-name{font-size:10.5pt;}
+  .driver-val{font-size:16pt;}
+  .driver-val .u{font-size:9pt;}
+  .driver-sub{font-size:9pt;line-height:1.7;}
 
-  /* 単価算出式 */
-  .formula{padding:4mm 5mm;margin-bottom:6mm;page-break-inside:avoid;gap:2mm;font-size:9.5pt;}
-  .f-box{padding:2mm 3mm;min-width:0;}
-  .f-result{padding:2.5mm 4mm;min-width:0;}
-  .f-result .fv{font-size:11pt;}
+  /* ── 単価算出式 ── */
+  .formula{padding:5mm 5mm;margin-bottom:8mm;page-break-inside:avoid;gap:3mm;font-size:10pt;}
+  .f-box{padding:3mm 3mm;min-width:0;}
+  .f-box .fl{font-size:8pt;}
+  .f-box .fv{font-size:11pt;}
+  .f-op{font-size:14pt;}
+  .f-result{padding:3.5mm 5mm;min-width:0;}
+  .f-result .fl{font-size:8pt;}
+  .f-result .fv{font-size:15pt;}
 
-  /* 価値ドライバー */
-  .value-list{gap:3mm;margin-bottom:6mm;}
-  .value-item{padding:4mm;page-break-inside:avoid;}
-  .value-head{font-size:10.5pt;margin-bottom:2mm;}
-  .value-desc{font-size:9pt;}
+  /* ── 価値ドライバー ── */
+  .value-list{gap:3mm;margin-bottom:8mm;}
+  .value-item{padding:5mm;page-break-inside:avoid;}
+  .value-num{font-size:9pt;}
+  .value-head{font-size:11.5pt;margin-bottom:3mm;}
+  .value-desc{font-size:10pt;line-height:1.9;}
 
-  /* 料金ブロック */
-  [style*="border:2px solid var(--gold)"]{page-break-inside:avoid;margin-bottom:6mm!important;}
+  /* ── 料金ブロック（メイン料金） ── */
+  [style*="border:2px solid var(--gold)"]{
+    page-break-inside:avoid;
+    margin-bottom:8mm!important;
+  }
+  /* メイン料金の大きな数字（画面56px → 印刷でも大きく） */
+  [style*="font-size:56px"]{
+    font-size:42pt!important;
+    letter-spacing:1pt!important;
+  }
+  [style*="font-size:56px"] span[style*="font-size:18px"]{
+    font-size:14pt!important;
+  }
 
-  /* 料金契約条件テーブル */
-  .scale-table{font-size:9.5pt;margin-bottom:4mm;}
-  .scale-table th,.scale-table td{padding:2.5mm 3mm;}
+  /* ── 契約条件テーブル ── */
+  .scale-table{font-size:10.5pt;margin-bottom:6mm;}
+  .scale-table th,.scale-table td{padding:3mm 3mm;}
+  .scale-table td strong{font-size:11.5pt;}
   .scale-table tr{page-break-inside:avoid;}
 
-  /* ノートボックス */
-  .note{padding:3mm 5mm;margin-bottom:4mm;page-break-inside:avoid;}
-  .note p{font-size:9pt;}
+  /* ── ノートボックス ── */
+  .note{padding:4mm 6mm;margin-bottom:5mm;page-break-inside:avoid;}
+  .note p{font-size:10pt;line-height:1.9;}
 
-  /* ── 捺印エリア 印刷 ── */
-  .seal-section{page-break-before:always;padding-top:10mm;}
-  .seal-intro{font-size:10pt;padding:4mm 5mm;margin-bottom:10mm;}
-  .c-sig-area{gap:6mm;margin-top:8mm;page-break-inside:avoid;}
-  .c-sig-box{padding:7mm 6mm 10mm;}
-  .c-sig-label{font-size:13pt;margin-bottom:5mm;padding-bottom:3mm;letter-spacing:6pt;}
-  .c-sig-label .role{font-size:8pt;}
-  .c-sig-field{font-size:10pt;line-height:2.3;margin-bottom:2mm;}
-  .c-sig-date{font-size:10pt;margin-top:5mm;padding-top:3mm;}
-  .c-sig-seal{padding:8mm 8mm;font-size:10pt;letter-spacing:6pt;margin-top:6mm;}
+  /* ── 捺印エリア（提案書・契約書共通） ── */
+  .seal-section{page-break-before:always;padding-top:8mm;}
+  .seal-intro{font-size:10.5pt;padding:5mm 6mm;margin-bottom:12mm;line-height:2;}
+  .c-sig-area{gap:8mm;margin-top:10mm;page-break-inside:avoid;}
+  .c-sig-box{padding:9mm 7mm 12mm;}
+  .c-sig-label{font-size:15pt;margin-bottom:6mm;padding-bottom:3mm;letter-spacing:8pt;}
+  .c-sig-label .role{font-size:9pt;letter-spacing:2pt;}
+  .c-sig-field{font-size:11pt;line-height:2.5;margin-bottom:3mm;}
+  .c-sig-date{font-size:11pt;margin-top:6mm;padding-top:4mm;}
+  .c-sig-seal{padding:9mm 9mm;font-size:12pt;letter-spacing:8pt;margin-top:8mm;}
 
   /* ── 契約書 印刷 ── */
   .c-title{
     font-family:var(--jp-serif);
-    font-size:20pt;
+    font-size:22pt;
     letter-spacing:10pt;
-    padding-bottom:5mm;
-    margin-bottom:10mm;
+    padding-bottom:6mm;
+    margin-bottom:12mm;
     border-bottom-width:1.5pt;
   }
-  .c-parties{gap:5mm;margin-bottom:8mm;page-break-inside:avoid;}
-  .c-party{padding:4mm 5mm;}
-  .c-party-role{font-size:10pt;margin-bottom:2mm;padding-bottom:2mm;}
-  .c-party-fields{font-size:9.5pt;line-height:2.2;}
-  .c-preamble{padding:4mm 5mm;margin-bottom:8mm;font-size:10pt;line-height:2;}
+  .c-parties{gap:6mm;margin-bottom:10mm;page-break-inside:avoid;}
+  .c-party{padding:5mm 6mm;}
+  .c-party-role{font-size:11pt;margin-bottom:3mm;padding-bottom:2mm;}
+  .c-party-fields{font-size:10.5pt;line-height:2.3;}
+  .c-preamble{padding:5mm 6mm;margin-bottom:10mm;font-size:11pt;line-height:2;}
 
-  .c-article{margin-bottom:5mm;page-break-inside:avoid;}
-  .c-article-title{font-size:11pt;padding:2mm 4mm;margin-bottom:2mm;border-left-width:3pt;}
-  .c-article-body{padding:0 4mm;font-size:10pt;line-height:2;}
-  .c-article-body ol{padding-left:6mm;margin:2mm 0;}
-  .c-article-body ol li{margin-bottom:1.5mm;}
-  .c-emphasis,.c-dynamic{padding:0 2pt;}
+  .c-article{margin-bottom:7mm;page-break-inside:avoid;}
+  .c-article-title{font-size:12pt;padding:3mm 5mm;margin-bottom:3mm;border-left-width:3pt;}
+  .c-article-body{padding:0 5mm;font-size:10.5pt;line-height:2;}
+  .c-article-body ol{padding-left:7mm;margin:3mm 0;}
+  .c-article-body ol li{margin-bottom:2mm;}
 
-  .c-closing{margin:10mm 0 6mm;font-size:10pt;}
-  .c-date{margin-bottom:10mm;font-size:11pt;letter-spacing:6pt;}
+  /* 契約書内の重要数字を大きく */
+  .c-emphasis{padding:1pt 5pt;font-size:11pt;}
+  .c-dynamic{padding:1pt 5pt;font-size:12.5pt;font-weight:900;}
+  .c-article-body strong{font-size:11.5pt;}
 
-  /* ── フッター情報（印刷専用） ── */
+  .c-closing{margin:12mm 0 8mm;font-size:11pt;}
+  .c-date{margin-bottom:12mm;font-size:12pt;letter-spacing:8pt;}
+
+  /* ── 印刷専用フッター ── */
   .print-footer{
     display:block!important;
     margin-top:15mm;
-    padding-top:4mm;
+    padding-top:5mm;
     border-top:0.5pt solid var(--g3);
-    font-size:8pt;
+    font-size:9pt;
     color:var(--g5);
     text-align:center;
     letter-spacing:2pt;
@@ -442,6 +481,7 @@ body{font-family:var(--jp);color:var(--black);background:var(--white);-webkit-fo
     font-family:var(--jp);
     font-weight:700;
     margin:0 6pt;
+    font-size:10pt;
   }
 }
 
